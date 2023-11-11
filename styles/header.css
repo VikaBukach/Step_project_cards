@@ -1,0 +1,35 @@
+
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-bottom: 3px solid #d7dae0;
+}
+
+.header__content-wrapper {
+  width: 100%;
+  max-width: 1140px;
+  box-sizing: border-box;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  cursor: pointer;
+  height: auto;
+  width: 60px;
+}
+
+.header a{
+    cursor: pointer;
+}
+
+.sign-in{
+  padding: 5px 10px;
+  border: 1px solid #585f73;
+  
+}
