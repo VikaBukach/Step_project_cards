@@ -1,12 +1,14 @@
 // 726f8982-072f-4309-934f-3fa2041c134c
-
 //korotejev@gmail.com
 //123
+
+
+import {checkForm, deleteError, handleInput, validateEmail} from "./Authorization/authorization.js";
+
 
 class Modal{
 
 }
-
 
 
 class Visit{
