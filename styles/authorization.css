@@ -1,11 +1,8 @@
 :root{
     --blue-color: #63aeff;
+    --white-color: white;
+    --gray-color: #cccccc;
     --error-color: rgba(255, 0, 0, 0.43);
-}
-
-.sign-in{
-    padding: 5px 10px;
-    border: 1px solid #585f73;
 }
 
 .log-in-form-wrapper {
@@ -13,6 +10,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.sign-in{
+    padding: 5px 10px;
+    border: 1px solid #585f73;
 }
 
 .log-in-form{
@@ -33,7 +39,7 @@ h1 {
 }
 
 .form__input-wrapper label {
-    color: #cccccc;
+    color: var(--gray-color);
     margin-top: 20px;
     font-size: 20px;
     position: relative;
@@ -45,7 +51,7 @@ h1 {
 .form__input-wrapper input {
     width: 100%;
     margin-top: 5px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--gray-color);
     font-size: 18px;
     padding: 7px 10px 7px 10px;
     outline: none;
@@ -79,14 +85,14 @@ h1 {
     position: absolute;
     left: 16px;
     top: 30%;
-    background-color: white;
+    background-color: var(--white-color);
     transition: all 0.3s ease-in-out;
     padding: 0 4px;
 
 }
 
 .log-in-form button {
-    width: 420px;
+    width: 400px;
     border-radius: 4px;
     padding: 10px 0;
     margin-top: 25px;
@@ -99,7 +105,7 @@ h1 {
 
 .log-in-form button.disable {
     pointer-events: none;
-    background-color: #cccccc;
+    background-color: var(--gray-color);
 }
 
 .input-error {
@@ -112,4 +118,13 @@ h1 {
 
 .input-error.view {
     display: flex;
+}
+
+/*============modal*/
+.modal {
+    width: 500px;
+    height: 500px;
+    margin: 150px auto;
+    overflow-y: auto;
+    background: var(--white-color);
 }

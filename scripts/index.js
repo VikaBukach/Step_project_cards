@@ -2,7 +2,7 @@
 //korotejev@gmail.com
 //123
 
-
+import {activateModal} from "./Authorization/authorization.js";
 import {checkForm, deleteError, handleInput, validateEmail} from "./Authorization/authorization.js";
 
 

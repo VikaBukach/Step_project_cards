@@ -1,9 +1,26 @@
+const signInBtn = document.getElementById('signIn-btn');
+
 const form = {
     email: document.getElementById('email'),
     password: document.getElementById('password'),
     button: document.querySelector('.log-in-form-btn'),
     error: document.querySelector('.input-error'),
 }
+
+signInBtn.addEventListener('click', activateModal)
+
+export function activateModal() {
+    const modalEl = document.createElement('div');
+    modalEl.classList.add('modal');
+    const logInForm = document.querySelector(".log-in-form-wrapper")
+    logInForm.classList.remove('hidden')
+    modalEl.append(logInForm)
+
+    mui.overlay('on', modalEl);
+}
+
+
+
 export function checkForm() {
     const email = form.email.getElementsByTagName('input')[0].value
     const password = form.password.getElementsByTagName('input')[0].value

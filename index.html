@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>helsi</title>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <link rel="stylesheet" href="styles/style.css">
+    <script type="module" src="scripts/index.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="scripts/index.js" defer></script>
 </head>
 <body>
 <header class="header">
@@ -14,7 +16,8 @@
         <img class="header__logo" src="/img/logo.svg" alt="logo" width="214" height="137" loading="eager"></span>
         <nav>
             <ul>
-                <li><a role="button" class="sign-in" id="registration-btn">Вхід</a></li>
+
+                <li><a role="button" class="sign-in" id="signIn-btn">Вхід</a></li>
                 <li><a role="button" class="create-visit" style="display: none;">Створити візит</a></li>
             </ul>
         </nav>
@@ -23,7 +26,7 @@
 <main>
     <div class="container">
 
-        <div class="log-in-form-wrapper">
+        <div class="log-in-form-wrapper hidden">
             <form class="log-in-form">
                 <h1>Вхід у систему</h1>
                 <div class="form__input-wrapper">
@@ -63,7 +66,7 @@
 </main>
 
 
-<script type="module" src="scripts/index.js"></script>
+
 </body>
 </html>
 
