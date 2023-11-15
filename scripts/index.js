@@ -1,12 +1,20 @@
 // 726f8982-072f-4309-934f-3fa2041c134c
-
 //korotejev@gmail.com
 //123
+
+import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, addToLocalStorage} from "./Authorization/authorization.js";
+
+
+
+
+
+
+
+
 
 class Modal{
 
 }
-
 
 
 class Visit{
