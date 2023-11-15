@@ -2,8 +2,14 @@
 //korotejev@gmail.com
 //123
 
-import {activateModal} from "./Authorization/authorization.js";
-import {checkForm, deleteError, handleInput, validateEmail} from "./Authorization/authorization.js";
+import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, addToLocalStorage} from "./Authorization/authorization.js";
+
+
+
+
+
+
+
 
 
 class Modal{

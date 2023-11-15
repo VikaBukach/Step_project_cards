@@ -1,63 +1,62 @@
 const signInBtn = document.getElementById('signIn-btn');
+signInBtn.addEventListener('click', openModal)
 
-const form = {
-    email: document.getElementById('email'),
-    password: document.getElementById('password'),
-    button: document.querySelector('.log-in-form-btn'),
-    error: document.querySelector('.input-error'),
+export function openModal() {
+    createModal("Реєстрація", getAuthForm())
+    document.getElementById('auth-form').addEventListener('submit', authFormHandler, {once: true})
 }
 
-signInBtn.addEventListener('click', activateModal)
+export function createModal(title, content) {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
 
-export function activateModal() {
-    const modalEl = document.createElement('div');
-    modalEl.classList.add('modal');
-    const logInForm = document.querySelector(".log-in-form-wrapper")
-    logInForm.classList.remove('hidden')
-    modalEl.append(logInForm)
-
-    mui.overlay('on', modalEl);
+    modal.innerHTML = `
+    <h1>${title}</h1>  
+    <div class = "modal-content">${content}</div>
+    `
+    mui.overlay('on', modal);
 }
 
-export function checkForm() {
-    const email = form.email.getElementsByTagName('input')[0].value
-    const password = form.password.getElementsByTagName('input')[0].value
-
-    if (email && password) {
-        form.button.classList.remove('disable')
-    } else {
-        form.button.classList.add('disable')
-    }
-}
-export function handleInput(e, name) {
-    const { value } = e.target
-    if (value) {
-        form[name].classList.add("filled")
-    } else {
-        form[name].classList.remove("filled")
-    }
-    checkForm()
+export function getAuthForm() {
+    return `
+<div class="log-in-form-wrapper">
+   <form class="mui-form" id="auth-form">
+   <div class="mui-textfield mui-textfield--float-label">
+    <input type="email" id="email" required>
+    <label for="email">Email</label>
+  </div>
+  <div class="mui-textfield mui-textfield--float-label">
+    <input type="password" id="password" required>
+    <label for="password"">Password</label>
+  </div>
+  <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary log-in-form-btn" id="formBtn">Увійти</button>
+</form>
+</div>
+   `
 }
 
-export function deleteError() {
-    form.email.classList.remove('error')
-    form.error.classList.remove('view')
+export function authFormHandler(event) {
+    event.preventDefault()
+    const email = event.target.querySelector('#email').value;
+    const password = event.target.querySelector('#password').value;
+
+    authWithEmailAndPassword(email, password)
 }
-export function validateEmail() {
-    const { value } = form.email.getElementsByTagName('input')[0]
-    const reg = /[a-z]{3,20}@[a-z]{3,10}\.[a-z]{2,4}/
-    // console.log(value)
-    if(reg.test(value)) {
-        alert ('Ви увійшли!')
-        deleteError()
-    } else{
-        form.button.classList.add('disable')
-        form.email.classList.add('error')
-        form.error.classList.add('view')
-    }
+
+export function authWithEmailAndPassword (email, password) {
+    fetch("https://ajax.test-danit.com/api/v2/cards/login", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: 'your@email.com', password: 'password' })
+    })
+        .then(response => response.text())
+        .then(token => console.log(token))
+        .then(addToLocalStorage)
+
 }
-form.email.oninput = (e) => handleInput(e, 'email');
-form.password.oninput = (e) => handleInput(e, 'password');
-form.button.onclick = validateEmail;
-form.email.getElementsByTagName('input')[0].onblur = validateEmail;
-form.email.getElementsByTagName('input')[0].onfocus = deleteError;
+
+export function addToLocalStorage(token) {
+localStorage.setItem('token', JSON.stringify(token))
+}
