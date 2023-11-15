@@ -19,8 +19,6 @@ export function activateModal() {
     mui.overlay('on', modalEl);
 }
 
-
-
 export function checkForm() {
     const email = form.email.getElementsByTagName('input')[0].value
     const password = form.password.getElementsByTagName('input')[0].value
@@ -48,6 +46,7 @@ export function deleteError() {
 export function validateEmail() {
     const { value } = form.email.getElementsByTagName('input')[0]
     const reg = /[a-z]{3,20}@[a-z]{3,10}\.[a-z]{2,4}/
+    // console.log(value)
     if(reg.test(value)) {
         alert ('Ви увійшли!')
         deleteError()

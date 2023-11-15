@@ -1,5 +1,5 @@
 :root{
-    --blue-color: #63aeff;
+    --blue-color: rgba(99, 174, 255, 0.79);
     --white-color: white;
     --gray-color: #cccccc;
     --error-color: rgba(255, 0, 0, 0.43);
@@ -17,8 +17,16 @@
 }
 
 .sign-in{
-    padding: 5px 10px;
-    border: 1px solid #585f73;
+    padding: 8px 30px;
+    border-radius: 4px;
+    background-color: var(--blue-color);
+    font-size: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.sign-in:hover {
+    background-color: var(--error-color);
 }
 
 .log-in-form{
