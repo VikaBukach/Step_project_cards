@@ -2,7 +2,7 @@
 //korotejev@gmail.com
 //123
 
-import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, addToLocalStorage} from "./Authorization/authorization.js";
+import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, showBtnCreateVisit, isAuthorized} from "./Authorization/authorization.js";
 
 
 
