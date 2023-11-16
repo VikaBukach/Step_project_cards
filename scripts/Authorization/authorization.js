@@ -1,5 +1,6 @@
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
+showBtnCreateVisit()
 
 export function openModal() {
     createModal("Реєстрація", getAuthForm())
@@ -7,13 +8,11 @@ export function openModal() {
 }
 
 export function createModal(title, content) {
-    const modal = document.createElement('div');
+    var modal = document.createElement('div');
     modal.classList.add('modal');
-
     modal.innerHTML = `
     <h1>${title}</h1>  
-    <div class = "modal-content">${content}</div>
-    `
+    <div class = "modal-content">${content}</div>`
     mui.overlay('on', modal);
 }
 
@@ -31,8 +30,7 @@ export function getAuthForm() {
   </div>
   <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary log-in-form-btn" id="formBtn">Увійти</button>
 </form>
-</div>
-   `
+</div>`
 }
 
 export function authFormHandler(event) {
@@ -52,11 +50,29 @@ export function authWithEmailAndPassword (email, password) {
         body: JSON.stringify({ email: 'your@email.com', password: 'password' })
     })
         .then(response => response.text())
-        .then(token => console.log(token))
-        .then(addToLocalStorage)
-
+        .then(token => {
+            console.log((token))
+            localStorage.setItem('token', token)
+        })
+        showBtnCreateVisit()
 }
 
-export function addToLocalStorage(token) {
-localStorage.setItem('token', JSON.stringify(token))
+export function showBtnCreateVisit (){
+    if(isAuthorized()) {
+        const CreateVisitBtn = document.getElementById('createVisit-btn');
+        signInBtn.style.display = 'none';
+        CreateVisitBtn.style.display ='flex';
+    }}
+
+export function isAuthorized() {
+    return localStorage.getItem('token').length > 0;
 }
+
+
+
+// {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+
+// 11111@qwe.ua
+// 11111
+// 5db4c838-6625-4594-b0ea-4feb25002fe6
