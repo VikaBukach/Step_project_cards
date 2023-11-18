@@ -20,7 +20,7 @@ class Visits {
 
   renderForm(addContent){
     document.querySelector("body").insertAdjacentHTML('beforeend', `
-    <form id="createForm">
+    <form id="createForm" class="modal">
     <lable id="nameForm">І'мя:</lable><br>
     <input type="text" name=""><br>
     
@@ -42,9 +42,9 @@ class Visits {
     ${addContent}
     <input id="submitBtn" type="submit" value="Створити">
   </form>
-    `  )
-    
-   
+    `    )
+    const form = document.getElementById("createForm")
+    mui.overlay('on', form);
 }
 
 
