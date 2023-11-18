@@ -11,7 +11,7 @@ renderForm(){
   const addValue = `    
   <div class="lableVisit">
   <lable id="lastVisit">Останній візит:</lable>
-  <input type="text" name=""></div>
+  <input type="text" name="" required></div>
   `
   super.renderForm(addValue)
 }

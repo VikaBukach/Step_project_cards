@@ -30,10 +30,10 @@ class Visits {
   </select>
     <div class="lableVisit">
     <lable id="nameForm">ПІБ:</lable><br>
-    <input type="text" name=""></div>
+    <input type="text" name="" required></div>
     <div class="lableVisit">
     <lable id="purposeForm">Мета візиту:</lable><br>
-    <input type="text" name=""></div>
+    <input type="text" name="" required></div>
     <div class="lableVisit">
     <select class="selectTime lableVisit" id="selectTime" name="timing">
     <option class="modal" value="choose">Обрати терміновість</option>
@@ -44,7 +44,7 @@ class Visits {
     </div>
     <div class="lableVisit">
     <lable id="descrForm">Опис візиту:</lable><br>
-    <input type="text"></div>
+    <input type="text" required></div>
     ${addContent}
     <div class="lableVisit">
     <button сlass="submitBtn" id="submitBtn">Створити візит</button>
@@ -52,6 +52,9 @@ class Visits {
     `    )
     const form = document.getElementById("createForm")
     mui.overlay('on', form);
+
+    
+
 }
 
 
