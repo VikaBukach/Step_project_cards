@@ -33,7 +33,7 @@ class Visits {
     <lable id="descrForm">Опис:</lable><br>
     <input type="text"><br>
     <br>
-    <select name="doctors">
+    <select id="selectDoc" name="doctors">
     <option value="choose">вибрати лікаря</option>
     <option value="DentistVisit">Dentist</option>
     <option value="TherapistVisit">Therapist</option>

@@ -51,7 +51,7 @@ cardsInfo();
 const btnVisit = document.getElementById('createVisit-btn')
 
 btnVisit.addEventListener("click", function (event){new Visits().renderForm()
-  const option = document.querySelector('select');
+  const option = document.getElementById('selectDoc');
   console.log(option.value)
   
   option.addEventListener("change", function (event) {
