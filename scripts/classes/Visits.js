@@ -21,18 +21,19 @@ class Visits {
   renderForm(addContent){
     document.querySelector("body").insertAdjacentHTML('beforeend', `
     <form id="createForm" class="modal formDoc">
+   
+   <div class="lableVisit">
     <lable id="nameForm">І'мя:</lable><br>
-    <input type="text" name=""><br>
-    
+    <input type="text" name=""></div>
+    <div class="lableVisit">
     <lable id="purposeForm">Мета:</lable><br>
-    <input type="text" name=""><br>
-    
+    <input type="text" name=""></div>
+    <div class="lableVisit">
     <lable id="timeForm">Час:</lable><br>
-    <input type="text"><br>
-    
+    <input type="text"></div>
+    <div class="lableVisit">
     <lable id="descrForm">Опис:</lable><br>
-    <input type="text"><br>
-    <br>
+    <input type="text"></div>
     <select id="selectDoc" name="doctors">
     <option value="choose">вибрати лікаря</option>
     <option value="DentistVisit">Dentist</option>
@@ -40,8 +41,9 @@ class Visits {
     <option value="CardioVisit">Cardio</option>
   </select>
     ${addContent}
+    <div class="lableVisit">
     <input id="submitBtn" type="submit" value="Створити">
-  </form>
+  </form></div>
     `    )
     const form = document.getElementById("createForm")
     mui.overlay('on', form);
