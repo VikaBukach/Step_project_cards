@@ -5,13 +5,23 @@
     flex-direction: column;
     border-radius: 15px;
     font-size: 16px;
+    height: 600px;
 }
 
 .lableVisit {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 260px;
+    width: 350px;
     padding: 5px;
     margin-bottom: 15px;
+}
+
+.submitBtn {
+    background: rgba(99, 174, 255, 0.79);
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -10,7 +10,7 @@ renderForm(){
   document.getElementById("createForm")?.remove()
   const addValue = `    
   <div class="lableVisit">
-  <lable id="lastVisit">останній візит:</lable>
+  <lable id="lastVisit">Останній візит:</lable>
   <input type="text" name=""></div>
   `
   super.renderForm(addValue)

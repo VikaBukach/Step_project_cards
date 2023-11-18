@@ -9,7 +9,7 @@ class TherapistVisit extends Visits {
     document.getElementById("createForm")?.remove()
     const addValue = `
     <div class="lableVisit">
-    <lable id="day">День:</lable>
+    <lable id="day">Інше:</lable>
     <input type="text" name=""></div>
     `
     super.renderForm(addValue)
