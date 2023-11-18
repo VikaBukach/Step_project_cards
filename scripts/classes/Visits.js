@@ -20,7 +20,7 @@ class Visits {
 
   renderForm(addContent){
     document.querySelector("body").insertAdjacentHTML('beforeend', `
-    <form id="createForm" class="modal">
+    <form id="createForm" class="modal formDoc">
     <lable id="nameForm">І'мя:</lable><br>
     <input type="text" name=""><br>
     
