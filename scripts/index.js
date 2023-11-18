@@ -9,7 +9,7 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import getCards from "./API/getCards.js";
-import postCards from "./API/postCards.js";
+//import postCards from "./API/postCards.js";
 import Visits from "./classes/Visits.js";
 import createForm from "./classes/Visits.js";
 

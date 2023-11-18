@@ -47,17 +47,31 @@ class Visits {
     <input type="text" required></div>
     ${addContent}
     <div class="lableVisit">
-    <button сlass="submitBtn" id="submitBtn">Створити візит</button>
+    <input сlass="submitBtn" id="submitBtn" type="submit" value="Створити візит">
   </form></div>
     `    )
-    const form = document.getElementById("createForm")
-    mui.overlay('on', form);
+    const createForm = document.getElementById("createForm")
+    mui.overlay('on', createForm);
 
-    
+    createForm.onsubmit = async (e) => {
+      e.preventDefault();}
+
+
+      const submitPost = document.getElementById("submitBtn")
+      submitPost.addEventListener("click", function (event) {
+        fetch("https://ajax.test-danit.com/api/v2/cards", {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`
+          },
+          body: JSON.stringify(new FormData(createForm))
+      })
+      .then(response => response.json())
+      .then(response => console.log(response))
+      })
 
 }
-
-
 }
 export default Visits;
 

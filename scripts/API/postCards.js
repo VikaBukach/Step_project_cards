@@ -1,7 +1,7 @@
 //import {URL_USER_INFO, AUTHORIZATION_TOKEN} from "../constants/constants.js"
 
 
-
+/*
 
 const postCards = async () => {
   try {
@@ -11,10 +11,10 @@ const postCards = async () => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
       },
-      body: JSON.stringify( new FormData(createForm))
+      body: JSON.stringify(new FormData(createForm))
     }))
       let result = await response.json();
-      alert(result.message);
+      console.log(result.message);
       return data;
    
   } catch (err) {
@@ -26,3 +26,4 @@ const postCards = async () => {
 
 
 export default postCards;
+/*/
