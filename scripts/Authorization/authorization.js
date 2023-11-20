@@ -9,6 +9,7 @@ export function openModal() {
 
 export function createModal(title, content) {
     var modal = document.createElement('div');
+    modal.setAttribute('id', 'registration-form')
     modal.classList.add('modal');
     modal.innerHTML = `
     <h1>${title}</h1>  
@@ -53,26 +54,37 @@ export function authWithEmailAndPassword (email, password) {
         .then(token => {
             console.log((token))
             localStorage.setItem('token', token)
+            mui.overlay('off')
+            showBtnCreateVisit()
         })
-        showBtnCreateVisit()
+
 }
 
 export function showBtnCreateVisit (){
     if(isAuthorized()) {
         const CreateVisitBtn = document.getElementById('createVisit-btn');
+        const LogoutBtn = document.getElementById('logout-btn');
         signInBtn.style.display = 'none';
         CreateVisitBtn.style.display ='flex';
+        LogoutBtn.style.display ='flex';
     }}
 
 export function isAuthorized() {
-    return localStorage.getItem('token').length > 0;
+    return localStorage.getItem('token') && localStorage.getItem('token').length > 0;
 }
 
+export function logout() {
+    localStorage.removeItem('token');
+    location.reload();
+}
 
-
-// {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }
-
+const LogoutBtn = document.getElementById('logout-btn');
+LogoutBtn.addEventListener('click', logout)
 
 // 11111@qwe.ua
 // 11111
 // 5db4c838-6625-4594-b0ea-4feb25002fe6
+
+// setTimeout(function () {
+//     mui.overlay('off');
+// }, 9000)
