@@ -5,7 +5,7 @@
     /*--error-color: rgba(255, 0, 0, 0.43);*/
 }
 
-.log-in-form-wrapper {
+.log-in-form-wrapper{
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -34,4 +34,9 @@ h1 {
     margin: 150px auto;
     overflow-y: auto;
     background: var(--white-color);
+}
+
+.logout-btn {
+    display: block;
+    cursor: pointer;
 }
