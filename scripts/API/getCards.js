@@ -1,5 +1,5 @@
 //import {URL_USER_INFO, AUTHORIZATION_TOKEN} from "../constants/constants.js"
-
+/*
 const getCards = async () => {
   try {
     const data = (await fetch("https://ajax.test-danit.com/api/v2/cards", {
@@ -17,4 +17,4 @@ const getCards = async () => {
   }
 }
 
-export default getCards;
+export default getCards;*/

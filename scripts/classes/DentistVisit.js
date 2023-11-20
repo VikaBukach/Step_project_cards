@@ -7,13 +7,14 @@ class DentistVisit extends Visits {
     this.lastVisit = lastVisit;
   }
 renderForm(){    
-  document.getElementById("createForm")?.remove()
-  const addValue = `    
-  <div class="lableVisit">
+  const submitBtn = document.getElementById("submitBtn").parentElement
+  
+    const addValue = `    
+  <div class="lableVisit" id="formForDoctor">
   <lable id="lastVisit">Останній візит:</lable>
   <input type="date" name="lastVisit" required></div>
   `
-  super.renderForm(addValue)
+  submitBtn.insertAdjacentHTML("beforebegin", addValue)
 }
   render(selector) {
     document.querySelector(selector).insertAdjacentHTML('beforeend', `

@@ -8,7 +8,7 @@ import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPa
 import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
-import getCards from "./API/getCards.js";
+//import getCards from "./API/getCards.js";
 //import postCards from "./API/postCards.js";
 import Visits from "./classes/Visits.js";
 import createForm from "./classes/Visits.js";
@@ -18,31 +18,33 @@ import createForm from "./classes/Visits.js";
 //import filterCards from "./Filter.js";
 
 // new DentistVisit("Maria", 32).render();
- 
-async function cardsInfo () {
-  const data = await getCards();
-
-  data.forEach(({name, purpose, time, description}) => {
-
-const option = document.querySelector('select');
-      console.log(option.value)
-      if (option.value === 'DentistVisit') {     
-        new DentistVisit(name, purpose, time, description, lastVisit).render();
-      }
-      else if (option.value === 'TherapistVisit') { 
-        new TherapistVisit(name, purpose, time, description, day).render();
-      }
-      else if (option.value === 'CardioVisit') {     
-        new CardioVisit(name, purpose, time, description, pressure, index, diseases, age).render();
-      }
 
 
-  })
-}
+async function cardInfo(){
+const requests = await fetch("https://ajax.test-danit.com/api/v2/cards", {headers: {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
+}}).then(data => data.json())
+ Promise.all(requests)
+    .then(responses => {
+            responses.forEach(item => {console.log(item)
 
-cardsInfo();
+               let doctorName = "doctors"
+               
+               if (doctorName === 'DentistVisit') {     
+                new DentistVisit(responses).render('body');}
+              else if (doctorName === 'TherapistVisit') { 
+                new TherapistVisit(responses).render('body');
+              }
+              else if (doctorName === 'CardioVisit') {     
+                new CardioVisit(responses).render('body');
+              }
+                
+            })
 
+          })}
 
+cardInfo()
 
 
 
@@ -52,7 +54,32 @@ const btnVisit = document.getElementById('createVisit-btn')
 
 btnVisit.addEventListener("click", function (event){new Visits().renderForm()
   const option = document.getElementById('selectDoc');
-  console.log(option.value)
+  
+  option.addEventListener("change", function (event) {
+    console.log(event.target.value)
+    const formForDoctor = document.getElementById("formForDoctor")
+    console.log(formForDoctor)
+    if (event.target.value === 'choose') { 
+
+      console.log("choose")
+    }
+    else if (event.target.value === 'TherapistVisit') { 
+
+      new TherapistVisit().renderForm();
+    }
+    else if (event.target.value === 'DentistVisit') { 
+
+      new DentistVisit().renderForm();
+    }
+    else if (event.target.value === 'CardioVisit') {     
+
+      new CardioVisit().renderForm();
+    }
+  })
+
+/*
+
+const option = document.getElementById('selectDoc');
   
   option.addEventListener("change", function (event) {
     console.log(event.target.value)
@@ -74,8 +101,7 @@ btnVisit.addEventListener("click", function (event){new Visits().renderForm()
 
       new CardioVisit().renderForm();
     }
-  })
-
+  }
 
 
   if (event.target.value === 'DentistVisit') {     
@@ -88,7 +114,7 @@ btnVisit.addEventListener("click", function (event){new Visits().renderForm()
     new CardioVisit(name, purpose, time, description, pressure, index, diseases, age).render();
   }
   
-/*
+
   createForm.onsubmit = async (e) => {
     e.preventDefault();
 

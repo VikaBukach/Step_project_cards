@@ -6,13 +6,14 @@ class TherapistVisit extends Visits {
     this.day = day;
   }
   renderForm(){    
-    document.getElementById("createForm")?.remove()
+    const submitBtn = document.getElementById("submitBtn").parentElement
+   
     const addValue = `
-    <div class="lableVisit">
+    <div class="lableVisit" id="formForDoctor">
     <lable id="day">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-    super.renderForm(addValue)
+    submitBtn.insertAdjacentHTML("beforebegin", addValue)
   }
   render(selector) {
     document.querySelector(selector).insertAdjacentHTML('beforeend', `

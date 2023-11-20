@@ -10,9 +10,11 @@ class CardioVisit extends Visits {
     this.age = age;
   }
   renderForm(){    
-    document.getElementById("createForm")?.remove()
-    const addValue = `
-    <div class="lableVisit">
+   const submitBtn = document.getElementById("submitBtn").parentElement
+   const formForDoctor = document.getElementById("formForDoctor")
+   formForDoctor.remove()
+   const addValue = `
+    <div class="lableVisit" id="formForDoctor">
     <lable id="pressure">Звичайний тиск:</lable>
     <input type="number" name="pressure" required></div>
     <div class="lableVisit">
@@ -25,7 +27,8 @@ class CardioVisit extends Visits {
     <lable id="age">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-    super.renderForm(addValue)
+    submitBtn.insertAdjacentHTML("beforebegin", addValue)
+   // super.renderForm(addValue)
   }
   render(selector) {
     document.querySelector("body").insertAdjacentHTML('beforeend', `
