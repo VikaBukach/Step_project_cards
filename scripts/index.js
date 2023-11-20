@@ -2,7 +2,7 @@
 //korotejev@gmail.com
 //123
 
-import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, showBtnCreateVisit, isAuthorized} from "./Authorization/authorization.js";
+import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, showBtnCreateVisit, isAuthorized, logout} from "./Authorization/authorization.js";
 
 
 import DentistVisit from "./classes/DentistVisit.js";
@@ -58,19 +58,19 @@ btnVisit.addEventListener("click", function (event){new Visits().renderForm()
     console.log(event.target.value)
 
 
-    if (event.target.value === 'choose') { 
+    if (event.target.value === 'choose') {
 
       console.log("choose")
     }
-    else if (event.target.value === 'TherapistVisit') { 
+    else if (event.target.value === 'TherapistVisit') {
 
       new TherapistVisit().renderForm();
     }
-    else if (event.target.value === 'DentistVisit') { 
+    else if (event.target.value === 'DentistVisit') {
 
       new DentistVisit().renderForm();
     }
-    else if (event.target.value === 'CardioVisit') {     
+    else if (event.target.value === 'CardioVisit') {
 
       new CardioVisit().renderForm();
     }
