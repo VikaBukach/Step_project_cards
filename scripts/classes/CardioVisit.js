@@ -1,8 +1,8 @@
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
-  constructor(id, name, purpose, time, description, pressure, index, diseases, age) {
-    super(id, name, purpose, time, description);
+  constructor({id, fullName, purpose, timing, description, pressure, index, diseases, age}) {
+    super({id, fullName, purpose, timing, description});
 
     this.pressure = pressure;
     this.index = index;
@@ -12,7 +12,6 @@ class CardioVisit extends Visits {
   renderForm(){    
    const submitBtn = document.getElementById("submitBtn").parentElement
    const formForDoctor = document.getElementById("formForDoctor")
-   formForDoctor.remove()
    const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="pressure">Звичайний тиск:</lable>
@@ -33,10 +32,10 @@ class CardioVisit extends Visits {
   render(selector) {
     document.querySelector("body").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.name}</span>
+  <span>${this.fullName}</span>
   <span>${this.purpose}</span>
   <span>${this.description}</span>
-  <span>${this.time}</span>
+  <span>${this.timing}</span>
   <span>${this.pressure}</span>
   <span>${this.index}</span>
   <span>${this.diseases}</span>

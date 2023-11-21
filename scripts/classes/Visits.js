@@ -1,21 +1,21 @@
 
 
 class Visits {
-  constructor(id, name, purpose, time, description) {
+  constructor({id, fullName, purpose, timing, description}) {
     this.id = id;
-    this.name = name;
+    this.fullName = fullName;
     this.purpose = purpose;
-    this.time = time;
+    this.timing = timing;
     this.description = description;
   }
 
-  render(selector) {
+  render(selector) { console.log(fullName)
     document.querySelector(selector).insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.name}</span>
+  <span>${this.fullName}</span>
   <span>${this.purpose}</span>
   <span>${this.description}</span>
-  <span>${this.time}</span>
+  <span>${this.timing}</span>
   </div>`)}
 
   async renderForm(addContent){
@@ -54,54 +54,17 @@ class Visits {
     const createForm = document.getElementById("createForm")
     mui.overlay('on', createForm)
 
-    createForm.onsubmit = async (e) => {
-      e.preventDefault();}
+   
 
   const closeButton = document.getElementById('closeButton');
 closeButton.addEventListener('click', function() {
-  createForm.style.display = 'none';
+  mui.overlay('off', createForm)
 
+  createForm.remove()
 
 });
 
-
-      // const submitPost = document.getElementById("submitBtn")
-      // submitPost.addEventListener("click", function (event) {
-      //   fetch("https://ajax.test-danit.com/api/v2/cards", {
-      //     method: 'POST',
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //         'Authorization': `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`
-      //     },
-      //     body: JSON.stringify(new FormData(createForm))
-      // })
-      // .then(response => response.json())
-      // .then(response => console.log(response))
-      // })
-      try {
-        async function postRequest(event){
-        const response = await axios.post('https://ajax.test-danit.com/api/v2/cards', new FormData(createForm), {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
-            },
-        });
-
-        console.log("Server response:", response.data);
-        event.preventDefault()
-      }
-      const submitPost = document.getElementById("submitBtn")
-      submitPost.addEventListener("click", postRequest)
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-
-     
-     
-
-      
-
-  
+   
 }
 }
 export default Visits;

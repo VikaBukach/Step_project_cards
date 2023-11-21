@@ -1,8 +1,8 @@
 import Visits from "./Visits.js";
 
 class DentistVisit extends Visits {
-  constructor(id, name, purpose, time, description, lastVisit) {
-    super(id, name, purpose, time, description);
+  constructor({id, fullName, purpose, timing, description, lastVisit}) {
+    super({id, fullName, purpose, timing, description});
 
     this.lastVisit = lastVisit;
   }
@@ -16,13 +16,13 @@ renderForm(){
   `
   submitBtn.insertAdjacentHTML("beforebegin", addValue)
 }
-  render(selector) {
+  render(selector) { console.log(super.purpose)
     document.querySelector(selector).insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.name}</span>
+  <span>${this.fullName}</span>
   <span>${this.purpose}</span>
   <span>${this.description}</span>
-  <span>${this.time}</span>
+  <span>${this.timing}</span>
   <span>${this.lastVisit}</span>
   </div>`)}
 }

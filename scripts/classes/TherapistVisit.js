@@ -1,9 +1,9 @@
 import Visits from "./Visits.js";
 
 class TherapistVisit extends Visits {
-  constructor(id, name, purpose, time, description, day) {
-    super(id, name, purpose, time, description);
-    this.day = day;
+  constructor({id, fullName, purpose, timing, description, age}) {
+super({id, fullName, purpose, timing, description});
+    this.age = age;
   }
   renderForm(){    
     const submitBtn = document.getElementById("submitBtn").parentElement
@@ -18,11 +18,11 @@ class TherapistVisit extends Visits {
   render(selector) {
     document.querySelector(selector).insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.name}</span>
+  <span>${this.fullName}</span>
   <span>${this.purpose}</span>
   <span>${this.description}</span>
-  <span>${this.time}</span>
-  <span>${this.day}</span>
+  <span>${this.timing}</span>
+  <span>${this.age}</span>
   </div>`)}
 }
 

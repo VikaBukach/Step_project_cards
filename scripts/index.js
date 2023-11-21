@@ -8,16 +8,10 @@ import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPa
 import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
-//import getCards from "./API/getCards.js";
-//import postCards from "./API/postCards.js";
 import Visits from "./classes/Visits.js";
 import createForm from "./classes/Visits.js";
 
-//import createForm from "./classes/Visits.js";
 
-//import filterCards from "./Filter.js";
-
-// new DentistVisit("Maria", 32).render();
 
 
 async function cardInfo(){
@@ -28,31 +22,24 @@ const requests = await fetch("https://ajax.test-danit.com/api/v2/cards", {header
  Promise.all(requests)
     .then(responses => {
             responses.forEach(item => {console.log(item)
+              if (item.doctors === 'DentistVisit') { 
+                new DentistVisit(item).render('body');}
+                if (item.doctors === 'CardioVisit') { 
+                  new CardioVisit(item).render('body');}
+                  if (item.doctors === 'TherapistVisit') { 
+                    new TherapistVisit(item).render('body');}
 
-               let doctorName = "doctors"
+                  
                
-               if (doctorName === 'DentistVisit') {     
-                new DentistVisit(responses).render('body');}
-              else if (doctorName === 'TherapistVisit') { 
-                new TherapistVisit(responses).render('body');
-              }
-              else if (doctorName === 'CardioVisit') {     
-                new CardioVisit(responses).render('body');
-              }
-                
             })
-
           })}
 
 cardInfo()
 
 
-
-
-
 const btnVisit = document.getElementById('createVisit-btn')
 
-btnVisit.addEventListener("click", function (event){new Visits().renderForm()
+btnVisit.addEventListener("click", function (event){new Visits({}).renderForm()
   const option = document.getElementById('selectDoc');
   
   option.addEventListener("change", function (event) {
@@ -65,17 +52,50 @@ btnVisit.addEventListener("click", function (event){new Visits().renderForm()
     }
     else if (event.target.value === 'TherapistVisit') { 
 
-      new TherapistVisit().renderForm();
+      new TherapistVisit({}).renderForm();
     }
     else if (event.target.value === 'DentistVisit') { 
 
-      new DentistVisit().renderForm();
+      new DentistVisit({}).renderForm();
     }
     else if (event.target.value === 'CardioVisit') {     
 
-      new CardioVisit().renderForm();
+      new CardioVisit({}).renderForm();
     }
-  })
+  }
+  
+  
+  )
+  const createForm = document.getElementById("createForm")
+  mui.overlay('on', createForm)
+
+  createForm.onsubmit = async (e) => {
+    e.preventDefault();
+    try {
+      async function postRequest(event){
+      const response = await axios.post('https://ajax.test-danit.com/api/v2/cards', new FormData(createForm), {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
+          },
+      });
+
+      console.log("Server response:", response.data);
+       if (response.data.doctors === 'DentistVisit') { 
+              new DentistVisit(response.data).render('body');}
+              if (response.data.doctors === 'CardioVisit') { 
+                new CardioVisit(response.data).render('body');}
+                if (response.data.doctors === 'TherapistVisit') { 
+                  new TherapistVisit(response.data).render('body');}
+    
+    }
+    postRequest()
+  } catch (error) {
+      console.error("Error during fetch:", error);
+  }
+  }
+
+})
 
 /*
 
@@ -143,7 +163,7 @@ const option = document.getElementById('selectDoc');
     new CardioVisit(name, purpose, time, description, pressure, index, diseases, age).render();
   }
 */
-})
+
 
 
 
