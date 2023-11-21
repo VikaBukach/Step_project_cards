@@ -2,17 +2,14 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
-  constructor({id, fullName, purpose, timing, description, pressure, index, diseases, age}) {
-    super({id, fullName, purpose, timing, description});
-
+  constructor({id, doctors, fullName, purpose, timing, description, pressure, index, diseases, age}) {
+    super({id, doctors, fullName, purpose, timing, description});
     this.pressure = pressure;
     this.index = index;
     this.diseases = diseases;
     this.age = age;
   }
   renderForm(){    
-   //const submitBtn = document.getElementById("submitBtn").parentElement
-   //const formForDoctor = document.getElementById("formForDoctor")
    const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="pressure">Звичайний тиск:</lable>
@@ -27,32 +24,33 @@ class CardioVisit extends Visits {
     <lable id="age">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-    //submitBtn.insertAdjacentHTML("beforebegin", addValue)
    super.renderForm(addValue)
    const option = document.getElementById('selectDoc');
    console.log(option)
-   option.addEventListener("change", function (event) {
-   //  createForm.remove()
-     console.log(event.target.value)
-    getForm()
- 
+   option.value='CardioVisit';
+  option.addEventListener("change", function (event) {
+    console.log(event.target.value)
+   getForm(event.target.value)
+
+     
+    }
     
-   }
    
    
    )
   }
-  render(selector) {
-    document.querySelector("body").insertAdjacentHTML('beforeend', `
+  render() {
+    document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.fullName}</span>
-  <span>${this.purpose}</span>
-  <span>${this.description}</span>
-  <span>${this.timing}</span>
-  <span>${this.pressure}</span>
-  <span>${this.index}</span>
-  <span>${this.diseases}</span>
-  <span>${this.age}</span>
+  <span class="cardInfo">${this.doctors}</span>
+  <span class="cardInfo">${this.fullName}</span>
+  <span class="cardInfo">${this.purpose}</span>
+  <span class="cardInfo">${this.description}</span>
+  <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.pressure}</span>
+  <span class="cardInfo">${this.index}</span>
+  <span class="cardInfo">${this.diseases}</span>
+  <span class="cardInfo">${this.age}</span>
   </div>`)}
 }
 

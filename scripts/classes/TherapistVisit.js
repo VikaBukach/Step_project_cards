@@ -2,27 +2,24 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class TherapistVisit extends Visits {
-  constructor({id, fullName, purpose, timing, description, age}) {
-super({id, fullName, purpose, timing, description});
+  constructor({id, doctors, fullName, purpose, timing, description, age}) {
+super({id, doctors, fullName, purpose, timing, description});
     this.age = age;
   }
-  renderForm(){    
-  //  const submitBtn = document.getElementById("submitBtn").parentElement
-   
+  renderForm(){       
     const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="day">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-   // submitBtn.insertAdjacentHTML("beforebegin", addValue)
     super.renderForm(addValue)
     const option = document.getElementById('selectDoc');
     console.log(option)
-    option.addEventListener("change", function (event) {
-    //  createForm.remove()
-      console.log(event.target.value)
-     getForm()
-  
+    option.value='TherapistVisit';
+  option.addEventListener("change", function (event) {
+    console.log(event.target.value)
+   getForm(event.target.value)
+
      
     }
     
@@ -30,14 +27,15 @@ super({id, fullName, purpose, timing, description});
     )
 
   }
-  render(selector) {
-    document.querySelector(selector).insertAdjacentHTML('beforeend', `
+  render() {
+    document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.fullName}</span>
-  <span>${this.purpose}</span>
-  <span>${this.description}</span>
-  <span>${this.timing}</span>
-  <span>${this.age}</span>
+  <span class="cardInfo">${this.doctors}</span>
+  <span class="cardInfo">${this.fullName}</span>
+  <span class="cardInfo">${this.purpose}</span>
+  <span class="cardInfo">${this.description}</span>
+  <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.age}</span>
   </div>`)}
 }
 

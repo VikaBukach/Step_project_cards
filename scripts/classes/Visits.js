@@ -2,8 +2,9 @@ import { getForm } from "../helpers/getForm.js";
 
 
 class Visits {
-  constructor({id, fullName, purpose, timing, description}) {
+  constructor({id, doctors, fullName, purpose, timing, description}) {
     this.id = id;
+    this.doctors = doctors;
     this.fullName = fullName;
     this.purpose = purpose;
     this.timing = timing;
@@ -13,14 +14,14 @@ class Visits {
   render(selector) { console.log(fullName)
     document.querySelector(selector).insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
-  <span>${this.fullName}</span>
-  <span>${this.purpose}</span>
-  <span>${this.description}</span>
-  <span>${this.timing}</span>
+  <span class="cardInfo">${this.doctors}</span>
+  <span class="cardInfo">${this.fullName}</span>
+  <span class="cardInfo">${this.purpose}</span>
+  <span class="cardInfo">${this.description}</span>
+  <span class="cardInfo">${this.timing}</span>
   </div>`)}
 
    renderForm(addContent){
-  console.log(addContent)
   document.getElementById("createForm")?.remove()
     document.querySelector("body").insertAdjacentHTML('afterend', `
     <form id="createForm" class="modal formDoc">    
@@ -49,27 +50,66 @@ class Visits {
     <div class="lableVisit">
     <lable id="descrForm">Опис візиту:</lable><br>
     <input type="text" name ="description" required></div>
-    ${addContent} 
+    ${addContent || ""} 
     <div class="lableVisit">
     <input сlass="submitBtn" id="submitBtn" type="submit" value="Створити візит"></div>
   </form>
     `    )
     const createForm = document.getElementById("createForm")
-    console.log(createForm)
+    const submitBtn = document.getElementById("submitBtn")
+    submitBtn.addEventListener ("click", async (e) => {
+    e.preventDefault();
+    try {
+      async function postRequest(){ console.log("createForm")
+      const response = await axios.post('https://ajax.test-danit.com/api/v2/cards', new FormData(createForm), {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
+          },
+      });
+      console.log("Server response:", response.data);
+    }
+    postRequest()
+  } catch (error) {
+      console.error("Error during fetch:", error);
+  }
+  })
     mui.overlay('on', createForm)
 
-
-
   const closeButton = document.getElementById('closeButton');
-closeButton.addEventListener('click', function() {
+  closeButton.addEventListener('click', function() {
   mui.overlay('off', createForm)
+    createForm.remove()
 
-  createForm.remove()
+  
+
+
+
+  const btnVisit = document.getElementById('createVisit-btn')
+  btnVisit.addEventListener("click", function (event){
+    new Visits({}).renderForm()
+  const option = document.getElementById('selectDoc');
+  console.log(option)
+  option.addEventListener("change", function (event) {
+    console.log(event.target.value)
+   getForm(event.target.value)
+  
+   
+  }
+  
+  
+  )
+   })
+  
+   
 
 });
 
    
 }
+
+
+
 }
 export default Visits;
 
