@@ -9,7 +9,7 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
-import createForm from "./classes/Visits.js";
+import { getForm } from "./helpers/getForm.js";
 
 
 
@@ -17,7 +17,7 @@ import createForm from "./classes/Visits.js";
 async function cardInfo(){
 const requests = await fetch("https://ajax.test-danit.com/api/v2/cards", {headers: {
   'Content-Type': 'application/json',
-  'Authorization': `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
+  'Authorization': `Bearer ${localStorage.getItem('token')}`,
 }}).then(data => data.json())
  Promise.all(requests)
     .then(responses => {
@@ -40,34 +40,22 @@ cardInfo()
 const btnVisit = document.getElementById('createVisit-btn')
 
 btnVisit.addEventListener("click", function (event){new Visits({}).renderForm()
-  const option = document.getElementById('selectDoc');
-  
-  option.addEventListener("change", function (event) {
-    console.log(event.target.value)
-    const formForDoctor = document.getElementById("formForDoctor")
-    console.log(formForDoctor)
-    if (event.target.value === 'choose') { 
+const option = document.getElementById('selectDoc');
+console.log(option)
+option.addEventListener("change", function (event) {
+//  createForm.remove()
+  console.log(event.target.value)
+ getForm()
 
-      console.log("choose")
-    }
-    else if (event.target.value === 'TherapistVisit') { 
+ 
+}
 
-      new TherapistVisit({}).renderForm();
-    }
-    else if (event.target.value === 'DentistVisit') { 
 
-      new DentistVisit({}).renderForm();
-    }
-    else if (event.target.value === 'CardioVisit') {     
-
-      new CardioVisit({}).renderForm();
-    }
-  }
-  
-  
-  )
+)
+ })
+  /*
   const createForm = document.getElementById("createForm")
-  mui.overlay('on', createForm)
+ // mui.overlay('on', createForm)
 
   createForm.onsubmit = async (e) => {
     e.preventDefault();
@@ -97,7 +85,7 @@ btnVisit.addEventListener("click", function (event){new Visits({}).renderForm()
 
 })
 
-/*
+
 
 const option = document.getElementById('selectDoc');
   

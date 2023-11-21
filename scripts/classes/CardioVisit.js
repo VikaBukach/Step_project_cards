@@ -1,3 +1,4 @@
+import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
@@ -10,8 +11,8 @@ class CardioVisit extends Visits {
     this.age = age;
   }
   renderForm(){    
-   const submitBtn = document.getElementById("submitBtn").parentElement
-   const formForDoctor = document.getElementById("formForDoctor")
+   //const submitBtn = document.getElementById("submitBtn").parentElement
+   //const formForDoctor = document.getElementById("formForDoctor")
    const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="pressure">Звичайний тиск:</lable>
@@ -26,8 +27,20 @@ class CardioVisit extends Visits {
     <lable id="age">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-    submitBtn.insertAdjacentHTML("beforebegin", addValue)
-   // super.renderForm(addValue)
+    //submitBtn.insertAdjacentHTML("beforebegin", addValue)
+   super.renderForm(addValue)
+   const option = document.getElementById('selectDoc');
+   console.log(option)
+   option.addEventListener("change", function (event) {
+   //  createForm.remove()
+     console.log(event.target.value)
+    getForm()
+ 
+    
+   }
+   
+   
+   )
   }
   render(selector) {
     document.querySelector("body").insertAdjacentHTML('beforeend', `
