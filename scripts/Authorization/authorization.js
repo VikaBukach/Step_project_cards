@@ -12,7 +12,7 @@ export function createModal(title, content) {
     modal.setAttribute('id', 'registration-form')
     modal.classList.add('modal');
     modal.innerHTML = `
-    <h1>${title}</h1>  
+    <h1 class="title" >${title}</h1>  
     <div class = "modal-content">${content}</div>`
     mui.overlay('on', modal);
 }
@@ -42,36 +42,46 @@ export function authFormHandler(event) {
     authWithEmailAndPassword(email, password)
 }
 
-export function authWithEmailAndPassword (email, password) {
+export function authWithEmailAndPassword(email, password) {
+
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: 'your@email.com', password: 'password' })
+        body: JSON.stringify({email: email, password: password})
     })
         .then(response => response.text())
         .then(token => {
-            console.log((token))
+            if(token === "Incorrect username or password") {
+                alert('Incorrect username or password')
+                location.reload();
+
+                return;
+            }
+
             localStorage.setItem('token', token)
             mui.overlay('off')
+
             showBtnCreateVisit()
         })
-
 }
 
-export function showBtnCreateVisit (){
-    if(isAuthorized()) {
+export function showBtnCreateVisit() {
+    if (isAuthorized()) {
         const CreateVisitBtn = document.getElementById('createVisit-btn');
         const LogoutBtn = document.getElementById('logout-btn');
         signInBtn.style.display = 'none';
-        CreateVisitBtn.style.display ='flex';
-        LogoutBtn.style.display ='flex';
-    }}
+        CreateVisitBtn.style.display = 'flex';
+        LogoutBtn.style.display = 'flex';
+    }
+}
 
 export function isAuthorized() {
     return localStorage.getItem('token') && localStorage.getItem('token').length > 0;
 }
+
+
 
 export function logout() {
     localStorage.removeItem('token');
@@ -81,10 +91,12 @@ export function logout() {
 const LogoutBtn = document.getElementById('logout-btn');
 LogoutBtn.addEventListener('click', logout)
 
-// 11111@qwe.ua
-// 11111
-// 5db4c838-6625-4594-b0ea-4feb25002fe6
 
-// setTimeout(function () {
-//     mui.overlay('off');
-// }, 9000)
+
+// rrrrr@ttt.ua      є 1 створена картка
+// 11111
+// 91ed8dc3-0171-4061-a126-f66fcd47fca1
+
+// Dfgtr@gmail.com
+// 1234we
+// 9c254ab4-ac5e-41fc-b944-c1cd249b849b
