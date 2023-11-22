@@ -1,16 +1,17 @@
-import { getForm } from "../helpers/getForm.js";
+import {getForm} from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
-  constructor({id, doctors, fullName, purpose, timing, description, pressure, index, diseases, age}) {
-    super({id, doctors, fullName, purpose, timing, description});
-    this.pressure = pressure;
-    this.index = index;
-    this.diseases = diseases;
-    this.age = age;
-  }
-  renderForm(){    
-   const addValue = `
+    constructor({id, doctors, fullName, purpose, timing, description, pressure, index, diseases, age}) {
+        super({id, doctors, fullName, purpose, timing, description});
+        this.pressure = pressure;
+        this.index = index;
+        this.diseases = diseases;
+        this.age = age;
+    }
+
+    renderForm() {
+        const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="pressure">Звичайний тиск:</lable>
     <input type="number" name="pressure" required></div>
@@ -24,23 +25,21 @@ class CardioVisit extends Visits {
     <lable id="age">Вік:</lable>
     <input type="number" name="age" required></div>
     `
-   super.renderForm(addValue)
-   const option = document.getElementById('selectDoc');
-   console.log(option)
-   option.value='CardioVisit';
-  option.addEventListener("change", function (event) {
-    console.log(event.target.value)
-   getForm(event.target.value)
+        super.renderForm(addValue)
+        const option = document.getElementById('selectDoc');
+        console.log(option)
+        option.value = 'CardioVisit';
+        option.addEventListener("change", function (event) {
+                console.log(event.target.value)
+                getForm(event.target.value)
 
-     
+
+            }
+        )
     }
-    
-   
-   
-   )
-  }
-  render() {
-    document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
+
+    render() {
+        document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
   <span class="cardInfo">${this.doctors}</span>
   <span class="cardInfo">${this.fullName}</span>
@@ -51,7 +50,8 @@ class CardioVisit extends Visits {
   <span class="cardInfo">${this.index}</span>
   <span class="cardInfo">${this.diseases}</span>
   <span class="cardInfo">${this.age}</span>
-  </div>`)}
+  </div>`)
+    }
 }
 
 export default CardioVisit;

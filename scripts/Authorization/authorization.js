@@ -47,19 +47,30 @@ export function authFormHandler(event) {
 }
 
 export function authWithEmailAndPassword(email, password) {
+
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: 'your@email.com', password: 'password'})
+        body: JSON.stringify({email: email, password: password})
     })
         .then(response => response.text())
         .then(token => {
-            console.log((token))
+            alert(token)
+            if(token === "Incorrect username or password") {
+                alert(token)
+
+                location.reload();
+
+                return;
+            }
+
+            console.log(token)
             localStorage.setItem('token', token)
             mui.overlay('off')
             showBtnCreateVisit()
+            cardInfo()
         })
 
 }
@@ -111,6 +122,7 @@ export function checkFirstVisit() {
 
     if (localStorage.getItem('token')) {
         h2.remove()
+        // postRequest()
         cardInfo()
     } else {
         h2.className = "title-main";
@@ -131,3 +143,7 @@ LogoutBtn.addEventListener('click', logout)
 // 11111@qwe.ua
 // 11111
 // 5db4c838-6625-4594-b0ea-4feb25002fe6
+
+// rrrrr@ttt.ua
+// 11111
+// 91ed8dc3-0171-4061-a126-f66fcd47fca1
