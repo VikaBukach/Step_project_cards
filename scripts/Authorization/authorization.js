@@ -117,7 +117,6 @@ export function checkFirstVisit() {
         h2.innerHTML = "No items have been added";
         div.prepend(h2);
     }
-
 }
 
 
