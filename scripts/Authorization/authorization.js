@@ -1,7 +1,3 @@
-import DentistVisit from "../classes/DentistVisit.js";
-import CardioVisit from "../classes/CardioVisit.js";
-import TherapistVisit from "../classes/TherapistVisit.js";
-
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
 showBtnCreateVisit()
@@ -57,22 +53,18 @@ export function authWithEmailAndPassword(email, password) {
     })
         .then(response => response.text())
         .then(token => {
-            alert(token)
             if(token === "Incorrect username or password") {
-                alert(token)
-
+                alert('Incorrect username or password')
                 location.reload();
 
                 return;
             }
 
-            console.log(token)
             localStorage.setItem('token', token)
             mui.overlay('off')
-            showBtnCreateVisit()
-            cardInfo()
-        })
 
+            showBtnCreateVisit()
+        })
 }
 
 export function showBtnCreateVisit() {
@@ -83,53 +75,12 @@ export function showBtnCreateVisit() {
         CreateVisitBtn.style.display = 'flex';
         LogoutBtn.style.display = 'flex';
     }
-
 }
 
 export function isAuthorized() {
     return localStorage.getItem('token') && localStorage.getItem('token').length > 0;
 }
 
-async function cardInfo() {
-    const requests = await fetch("https://ajax.test-danit.com/api/v2/cards",
-        {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            }
-        }).then(data => data.json())
-    Promise.all(requests)
-        .then(responses => {
-            responses.forEach(item => {
-                if (item.doctors === 'DentistVisit') {
-                    new DentistVisit(item).render('body');
-                }
-                if (item.doctors === 'CardioVisit') {
-                    new CardioVisit(item).render('body');
-                }
-                if (item.doctors === 'TherapistVisit') {
-                    new TherapistVisit(item).render('body');
-                }
-            })
-        })
-}
-
-
-checkFirstVisit();
-export function checkFirstVisit() {
-    const div = document.querySelector('.main-container');
-    const h2 = document.createElement('h2');
-
-    if (localStorage.getItem('token')) {
-        h2.remove()
-        // postRequest()
-        cardInfo()
-    } else {
-        h2.className = "title-main";
-        h2.innerHTML = "No items have been added";
-        div.prepend(h2);
-    }
-}
 
 
 export function logout() {
@@ -140,10 +91,12 @@ export function logout() {
 const LogoutBtn = document.getElementById('logout-btn');
 LogoutBtn.addEventListener('click', logout)
 
-// 11111@qwe.ua
-// 11111
-// 5db4c838-6625-4594-b0ea-4feb25002fe6
 
-// rrrrr@ttt.ua
+
+// rrrrr@ttt.ua      є 1 створена картка
 // 11111
 // 91ed8dc3-0171-4061-a126-f66fcd47fca1
+
+// Dfgtr@gmail.com
+// 1234we
+// 9c254ab4-ac5e-41fc-b944-c1cd249b849b
