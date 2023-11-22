@@ -93,7 +93,7 @@ LogoutBtn.addEventListener('click', logout)
 
 
 
-// rrrrr@ttt.ua      є 1 створена картка
+// rrrrr@ttt.ua      є 7  карт
 // 11111
 // 91ed8dc3-0171-4061-a126-f66fcd47fca1
 
