@@ -86,19 +86,7 @@ class Visits {
             createForm.remove()
 
 
-            const btnVisit = document.getElementById('createVisit-btn')
-            btnVisit.addEventListener("click", function (event) {
-                new Visits({}).renderForm()
-                const option = document.getElementById('selectDoc');
-                console.log(option)
-                option.addEventListener("change", function (event) {
-                        console.log(event.target.value)
-                        getForm(event.target.value)
-
-
-                    }
-                )
-            })
+ 
 
 
         });
