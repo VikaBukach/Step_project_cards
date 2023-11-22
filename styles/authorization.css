@@ -1,8 +1,7 @@
 :root{
-    --blue-color: rgba(99, 174, 255, 0.79);
+    --blue-color: #63aeff;
+    --orange-color: #FF8A65;
     --white-color: white;
-    /*--gray-color: #cccccc;*/
-    /*--error-color: rgba(255, 0, 0, 0.43);*/
 }
 
 .log-in-form-wrapper{
@@ -12,19 +11,25 @@
     align-items: center;
 }
 
-h1 {
-    color: var(--blue-color);
+.title,
+.title-main{
+    font-family: 'Open Sans', sans-serif;
+    color: var(--orange-color);
+    font-weight: 700;
     text-align: center;
-    font-size: 24px;
-    margin-top: 60px;
+    font-size: 32px;
+    margin-top: 80px;
 }
 
 .sign-in,
 .create-visit {
-    width: 180px
+    background-color: var(--blue-color);
+    width: 180px;
+    border-radius: 30px;
 }
 
 .log-in-form-btn{
+    margin-top: 80px;
     width: 400px;
 }
 

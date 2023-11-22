@@ -64,7 +64,7 @@ class Visits {
       const response = await axios.post('https://ajax.test-danit.com/api/v2/cards', new FormData(createForm), {
           headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${"6905f287-0231-463f-9520-1e50f37ba227"}`,
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
       });
       console.log("Server response:", response.data);

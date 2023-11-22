@@ -1,3 +1,7 @@
+import DentistVisit from "../classes/DentistVisit.js";
+import CardioVisit from "../classes/CardioVisit.js";
+import TherapistVisit from "../classes/TherapistVisit.js";
+
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
 showBtnCreateVisit()
@@ -12,7 +16,7 @@ export function createModal(title, content) {
     modal.setAttribute('id', 'registration-form')
     modal.classList.add('modal');
     modal.innerHTML = `
-    <h1>${title}</h1>  
+    <h1 class="title" >${title}</h1>  
     <div class = "modal-content">${content}</div>`
     mui.overlay('on', modal);
 }
@@ -42,13 +46,13 @@ export function authFormHandler(event) {
     authWithEmailAndPassword(email, password)
 }
 
-export function authWithEmailAndPassword (email, password) {
+export function authWithEmailAndPassword(email, password) {
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: 'your@email.com', password: 'password' })
+        body: JSON.stringify({email: 'your@email.com', password: 'password'})
     })
         .then(response => response.text())
         .then(token => {
@@ -60,18 +64,62 @@ export function authWithEmailAndPassword (email, password) {
 
 }
 
-export function showBtnCreateVisit (){
-    if(isAuthorized()) {
+export function showBtnCreateVisit() {
+    if (isAuthorized()) {
         const CreateVisitBtn = document.getElementById('createVisit-btn');
         const LogoutBtn = document.getElementById('logout-btn');
         signInBtn.style.display = 'none';
-        CreateVisitBtn.style.display ='flex';
-        LogoutBtn.style.display ='flex';
-    }}
+        CreateVisitBtn.style.display = 'flex';
+        LogoutBtn.style.display = 'flex';
+    }
+
+}
 
 export function isAuthorized() {
     return localStorage.getItem('token') && localStorage.getItem('token').length > 0;
 }
+
+async function cardInfo() {
+    const requests = await fetch("https://ajax.test-danit.com/api/v2/cards",
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(data => data.json())
+    Promise.all(requests)
+        .then(responses => {
+            responses.forEach(item => {
+                if (item.doctors === 'DentistVisit') {
+                    new DentistVisit(item).render('body');
+                }
+                if (item.doctors === 'CardioVisit') {
+                    new CardioVisit(item).render('body');
+                }
+                if (item.doctors === 'TherapistVisit') {
+                    new TherapistVisit(item).render('body');
+                }
+            })
+        })
+}
+
+
+checkFirstVisit();
+export function checkFirstVisit() {
+    const div = document.querySelector('.main-container');
+    const h2 = document.createElement('h2');
+
+    if (localStorage.getItem('token')) {
+        h2.remove()
+        cardInfo()
+    } else {
+        h2.className = "title-main";
+        h2.innerHTML = "No items have been added";
+        div.prepend(h2);
+    }
+
+}
+
 
 export function logout() {
     localStorage.removeItem('token');
@@ -84,7 +132,3 @@ LogoutBtn.addEventListener('click', logout)
 // 11111@qwe.ua
 // 11111
 // 5db4c838-6625-4594-b0ea-4feb25002fe6
-
-// setTimeout(function () {
-//     mui.overlay('off');
-// }, 9000)
