@@ -1,5 +1,5 @@
 .card{
-    width: 250px;
+    /*width: 250px;*/
     background: rgb(255, 255, 255);
     margin: 15px;
     padding: 10px;
@@ -17,9 +17,9 @@ margin: 4px;
 
 .grid-container{
     display: grid;
-    grid-auto-rows: max-content;
-    grid-template-columns: repeat(4, 300px);
-    gap: 15px 15px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, 300px);
+    gap: 15px;
     margin-top: 15px;
 }
 
