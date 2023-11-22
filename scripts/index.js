@@ -8,6 +8,7 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
+import CreateFilterCards from "./classes/Visits.js";
 import { getForm } from "./helpers/getForm.js";
 
 
