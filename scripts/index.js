@@ -48,7 +48,7 @@ export async function cardInfo() {
 
             const h2 = document.createElement('h2');
             h2.remove()
-
+            
             responses.forEach(item => {
                 if (item.doctors === 'DentistVisit') {
                     new DentistVisit(item).render('body');
@@ -62,6 +62,8 @@ export async function cardInfo() {
             })
 
             console.log('arrCardsVisits',arrCardsVisits)
+
+            
         })
 }
 

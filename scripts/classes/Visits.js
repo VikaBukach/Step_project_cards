@@ -76,6 +76,8 @@ class Visits {
                 postRequest()
                 createForm.remove()
                 mui.overlay('off', createForm)
+                location.reload();
+
             } catch (error) {
                 console.error("Error during fetch:", error);
             }
