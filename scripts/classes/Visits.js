@@ -70,7 +70,7 @@ class Visits {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                         },
                     });
-                    console.log("Server response:", response.data);// додати fn яка має відмальовувати картку
+                    console.log("Server response:", response.data);
                 }
 
                 postRequest()

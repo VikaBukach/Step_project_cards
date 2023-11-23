@@ -36,7 +36,7 @@ export async function cardInfo() {
     Promise.all(requests)
         .then(responses => {
             console.log('responses', responses)
-            arrCardsVisits = responses; // прописати в fn на зміну картки щоб оновлювались дані з серверу
+            arrCardsVisits = responses; 
             if (responses.length < 1) {
                 const div = document.querySelector('.main-container');
                 const h2 = document.createElement('h2');
