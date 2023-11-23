@@ -64,7 +64,6 @@ export function authWithEmailAndPassword(email, password) {
 
             localStorage.setItem('token', token)
             mui.overlay('off')
-
             showBtnCreateVisit()
 
         })
