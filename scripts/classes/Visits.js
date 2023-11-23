@@ -70,7 +70,7 @@ class Visits {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                         },
                     });
-                    console.log("Server response:", response.data);
+                    console.log("Server response:", response.data);// додати fn яка має відмальовувати картку
                 }
 
                 postRequest()
@@ -78,11 +78,20 @@ class Visits {
                 console.error("Error during fetch:", error);
             }
         })
-        mui.overlay('on', createForm)
+        var options = {
+            'keyboard': true, // teardown when <esc> key is pressed (default: true)
+            'static': false, // maintain overlay when clicked (default: false)
+            'onclose': function() {
+                document.body.classList.remove('mui-scroll-lock')
+            } // execute function when overlay is closed
+        };
+        mui.overlay('on', options, createForm)
 
         const closeButton = document.getElementById('closeButton');
         closeButton.addEventListener('click', function () {
             mui.overlay('off', createForm)
+
+
             createForm.remove()
         });
     }
@@ -90,35 +99,4 @@ class Visits {
 
 export default Visits;
 
-//==============================================
-// Фільтр карток (поле input для введення тексту пошуку за заголовком
-// або описом візиту, фільтр по статусу, по пріоритету) вам потрібно
-// робити на фронт-енді - тобто при зміні value будь-якого елемента
-// форми (вибраний пункт у списку, що було введено щось в input)
-// ви фільтруєте список раніше отриманих з сервера карток, і
-// відображаєте на екрані нову інформацію.
 
-export function CreateFilterCards() {
-
-const mainContainer = document.querySelector('.main-container')
-    mainContainer.insertAdjacentHTML("beforeend", `
-    
-    <div class= "search__form-wrapper" >
-        <form class ="search__form">
-            <input type="text" name="search" placeholder="Search by title">
-                <select name="" id="status">
-                    <option value="all">All</option>
-                    <option value="open">Open</option>
-                    <option value="done">Done</option>
-                </select>
-                <select name="" id="urgency">
-                    <option value="all">All</option>
-                    <option value="hign">High</option>
-                    <option value="norm">Normal</option>
-                    <option value="low">Low</option>
-                </select>
-        </form>
-    </div>
-`)
-}
-CreateFilterCards()

@@ -8,11 +8,12 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
-import CreateFilterCards from "./classes/Visits.js";
 import { getForm } from "./helpers/getForm.js";
 
+import {CreateFormFilter} from "./FilterCards/filterCards.js"
+import filterCards from "./FilterCards/filterCards.js";
 
-async function cardInfo() {
+export async function cardInfo() {
     const requests = await fetch("https://ajax.test-danit.com/api/v2/cards",
         {
             headers: {
@@ -50,7 +51,7 @@ async function cardInfo() {
         })
 }
 
-cardInfo()
+
 
 
 
