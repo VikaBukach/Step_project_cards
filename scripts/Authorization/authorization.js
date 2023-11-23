@@ -1,3 +1,5 @@
+import {cardInfo} from "../index.js";
+
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
 showBtnCreateVisit()
@@ -64,17 +66,21 @@ export function authWithEmailAndPassword(email, password) {
             mui.overlay('off')
 
             showBtnCreateVisit()
+
         })
 }
 
 export function showBtnCreateVisit() {
     if (isAuthorized()) {
+        cardInfo()
+
         const CreateVisitBtn = document.getElementById('createVisit-btn');
         const LogoutBtn = document.getElementById('logout-btn');
         signInBtn.style.display = 'none';
         CreateVisitBtn.style.display = 'flex';
         LogoutBtn.style.display = 'flex';
     }
+
 }
 
 export function isAuthorized() {

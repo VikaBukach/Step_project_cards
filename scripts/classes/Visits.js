@@ -70,7 +70,7 @@ class Visits {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                         },
                     });
-                    console.log("Server response:", response.data);
+                    console.log("Server response:", response.data);// додати fn яка має відмальовувати картку
                 }
 
                 postRequest()
@@ -78,11 +78,20 @@ class Visits {
                 console.error("Error during fetch:", error);
             }
         })
-        mui.overlay('on', createForm)
+        var options = {
+            'keyboard': true, // teardown when <esc> key is pressed (default: true)
+            'static': false, // maintain overlay when clicked (default: false)
+            'onclose': function() {
+                document.body.classList.remove('mui-scroll-lock')
+            } // execute function when overlay is closed
+        };
+        mui.overlay('on', options, createForm)
 
         const closeButton = document.getElementById('closeButton');
         closeButton.addEventListener('click', function () {
             mui.overlay('off', createForm)
+
+
             createForm.remove()
         });
     }

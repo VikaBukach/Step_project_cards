@@ -19,13 +19,8 @@ super({id, doctors, fullName, purpose, timing, description});
   option.addEventListener("change", function (event) {
     console.log(event.target.value)
    getForm(event.target.value)
-
-     
     }
-    
-    
     )
-
   }
   render() {
     document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
