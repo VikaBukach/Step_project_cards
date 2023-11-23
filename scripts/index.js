@@ -43,7 +43,6 @@ export async function cardInfo() {
                 h2.className = "title-main";
                 h2.innerHTML = "No items have been added";
                 div.prepend(h2);
-
                 return;
             }
 
