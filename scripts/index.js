@@ -2,16 +2,27 @@
 //korotejev@gmail.com
 //123
 
-import {openModal, createModal, getAuthForm, authFormHandler, authWithEmailAndPassword, showBtnCreateVisit, isAuthorized, logout} from "./Authorization/authorization.js";
+import {
+    openModal,
+    createModal,
+    getAuthForm,
+    authFormHandler,
+    authWithEmailAndPassword,
+    showBtnCreateVisit,
+    isAuthorized,
+    logout
+} from "./Authorization/authorization.js";
 
 import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
-import { getForm } from "./helpers/getForm.js";
+import {getForm} from "./helpers/getForm.js";
 
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
+
+export var arrCardsVisits = [];
 
 export async function cardInfo() {
     const requests = await fetch("https://ajax.test-danit.com/api/v2/cards",
@@ -20,10 +31,12 @@ export async function cardInfo() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
             }
-        }).then(data => data.json())
+        })
+        .then(data => data.json())
     Promise.all(requests)
         .then(responses => {
             console.log('responses', responses)
+            arrCardsVisits = responses; // прописати в fn на зміну картки щоб оновлювались дані з серверу
             if (responses.length < 1) {
                 const div = document.querySelector('.main-container');
                 const h2 = document.createElement('h2');
@@ -48,26 +61,23 @@ export async function cardInfo() {
                     new TherapistVisit(item).render('body');
                 }
             })
+
+            console.log('arrCardsVisits',arrCardsVisits)
         })
 }
 
 
-
-
-
-
-
 const btnVisit = document.getElementById('createVisit-btn')
-btnVisit.addEventListener("click", function (event){
-  new Visits({}).renderForm()
-const option = document.getElementById('selectDoc');
-console.log(option)
-option.addEventListener("change", function (event) {
-  console.log(event.target.value)
- getForm(event.target.value)
-}
-)
- })
+btnVisit.addEventListener("click", function (event) {
+    new Visits({}).renderForm()
+    const option = document.getElementById('selectDoc');
+    console.log(option)
+    option.addEventListener("change", function (event) {
+            console.log(event.target.value)
+            getForm(event.target.value)
+        }
+    )
+})
 
 
 
