@@ -1,4 +1,5 @@
 import {cardInfo} from "../index.js";
+import {CreateFormFilter} from "../FilterCards/filterCards.js";
 
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
@@ -71,6 +72,7 @@ export function authWithEmailAndPassword(email, password) {
 
 export function showBtnCreateVisit() {
     if (isAuthorized()) {
+        CreateFormFilter()
         cardInfo()
 
         const CreateVisitBtn = document.getElementById('createVisit-btn');
@@ -98,7 +100,7 @@ LogoutBtn.addEventListener('click', logout)
 
 
 
-// rrrrr@ttt.ua      є 7  карт
+// rrrrr@ttt.ua      є картки
 // 11111
 // 91ed8dc3-0171-4061-a126-f66fcd47fca1
 

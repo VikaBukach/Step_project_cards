@@ -20,7 +20,9 @@ import Visits from "./classes/Visits.js";
 import {getForm} from "./helpers/getForm.js";
 
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
-import filterCards from "./FilterCards/filterCards.js";
+// import filterCards from "./FilterCards/filterCards.js";
+
+export var arrCardsVisits = [];
 
 export var arrCardsVisits = [];
 
@@ -36,7 +38,7 @@ export async function cardInfo() {
     Promise.all(requests)
         .then(responses => {
             console.log('responses', responses)
-            arrCardsVisits = responses; 
+            arrCardsVisits = responses; // прописати в fn на зміну картки щоб оновлювались дані з серверу
             if (responses.length < 1) {
                 const div = document.querySelector('.main-container');
                 const h2 = document.createElement('h2');
@@ -48,7 +50,7 @@ export async function cardInfo() {
 
             const h2 = document.createElement('h2');
             h2.remove()
-            
+
             responses.forEach(item => {
                 if (item.doctors === 'DentistVisit') {
                     new DentistVisit(item).render('body');
@@ -62,11 +64,8 @@ export async function cardInfo() {
             })
 
             console.log('arrCardsVisits',arrCardsVisits)
-
-            
         })
 }
-
 
 const btnVisit = document.getElementById('createVisit-btn')
 btnVisit.addEventListener("click", function (event) {

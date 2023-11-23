@@ -27,20 +27,20 @@ export function CreateFormFilter() {
     </div>
 `)
 }
-CreateFormFilter()
 
-const inputSearch = document.querySelector("#search");
-inputSearch.addEventListener("input", filterCards)
-
-
-
-function filterCards(event) {
-    // console.log(event.target.value);
-
-
-
-
-
-}
-export default filterCards;
+//
+// const inputSearch = document.querySelector("#search");
+// inputSearch.addEventListener("input", filterCards)
+//
+//
+//
+// function filterCards(event) {
+//     // console.log(event.target.value);
+//
+//
+//
+//
+//
+// }
+// export default filterCards;
 
