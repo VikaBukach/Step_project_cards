@@ -14,17 +14,16 @@ export function CreateFormFilter() {
     <div class= "search__form-wrapper" >
         <form class ="search__form">
             <input type="text" name="search" id="search" placeholder="Введіть прізвище">
-                <select id="doctors">
-                    <option value="choose">Обрати лікаря</option>
-                    <option value="DentistVisit">Стоматолог</option>
-                    <option value="TherapistVisit">Терапевт</option>
-                    <option value="CardioVisit">Кардіолог</option>
+                <select name="" id="status">
+                    <option value="all">Статус візита</option>
+                    <option value="open">Візит пройшов</option>
+                    <option value="done">Візит ще не відбувся</option>
                 </select>
-                <select id="urgency">
-                    <option value="all">Терміновість</option>   
+                <select name="urgency" id="urgency">
+                    <option value="choose">Терміновість</option>   
                     <option value="ordinary">Звичайна</option>
                     <option value="priority">Пріорітетна</option>
-                    <option value="low">Невідкладна</option>
+                    <option value="urgent">Невідкладна</option>
                 </select>
         </form>
     </div>
@@ -32,33 +31,34 @@ export function CreateFormFilter() {
 }
 
 function filterCards(text) {
-
     return arrCardsVisits.filter((card) => {
         return card.fullName.includes(text)
     })
+
 }
 
 export default filterCards;
 
-const inputSearch = document.querySelector("#search");
+// const inputSearch = document.querySelector("#search");
 document.addEventListener("input", (event) => {
 
     if(event.target.id === "search") {
         renderCards(filterCards(event.target.value))
-        // console.log(filterCards(event.target.value))
     }
 })
 
-function filterDoctors(event) {
+
+export function filterUrgency(index) {
 
     return arrCardsVisits.filter((card) => {
-        return card.doctors.includes(event)
+        // console.log(card)
+        return card.timing === index
     })
 }
 document.addEventListener("change", (event) => {
-    console.log(event.target)
-    if(event.target.id === "doctors") {
-        console.log(event.target.value)
 
+    if(event.target.id === "urgency") {
+        // console.log(event.target.value)
+        renderCards(filterUrgency(event.target.value))
     }
 })
