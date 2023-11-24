@@ -18,8 +18,6 @@ import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
 import {getForm} from "./helpers/getForm.js";
-
-
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
 import {renderCards} from "./CreateCard/createCards.js";
@@ -38,8 +36,21 @@ export async function cardInfo() {
         .then(data => data.json())
     Promise.all(requests)
         .then(responses => {
-            console.log('responses', responses)
-            arrCardsVisits = responses; // прописати в fn на зміну картки щоб оновлювались дані з серверу
+            // console.log('responses', responses)
+            arrCardsVisits = responses;
+
+            if (responses.length < 1) {
+                const div = document.querySelector('.main-container');
+                const h2 = document.createElement('h2');
+                h2.className = "title-main";
+                h2.innerHTML = "No items have been added";
+                div.append(h2);
+
+                return;
+            }
+
+            const h2 = document.createElement('h2');
+            h2.remove()
 
             renderCards(responses);
         })
