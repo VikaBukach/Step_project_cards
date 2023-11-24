@@ -32,6 +32,9 @@ renderForm(){
   <span class="cardInfo">${this.timing}</span>
   <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.lastVisit}</span>
+  
+  <button id="deleteBtn">delete</button>
+  
   </div>`)}
 }
 

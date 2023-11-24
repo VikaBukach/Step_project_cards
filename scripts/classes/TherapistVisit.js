@@ -32,6 +32,9 @@ super({id, doctors, fullName, purpose, timing, description, status});
   <span class="cardInfo">${this.timing}</span>
   <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.age}</span>
+  
+  <button id="deleteBtn">delete</button>
+  
   </div>`)}
 }
 

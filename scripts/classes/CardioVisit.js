@@ -51,6 +51,9 @@ class CardioVisit extends Visits {
   <span class="cardInfo">${this.index}</span>
   <span class="cardInfo">${this.diseases}</span>
   <span class="cardInfo">${this.age}</span>
+  
+  <button id="deleteBtn">delete</button>
+  
   </div>`)
     }
 }

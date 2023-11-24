@@ -21,7 +21,9 @@ import {getForm} from "./helpers/getForm.js";
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
 import {renderCards} from "./CreateCard/createCards.js";
-import {filterUrgency} from "./FilterCards/filterCards.js"
+import {filterUrgency} from "./FilterCards/filterCards.js";
+import {deleteCard} from "./deleteCard/deleteCard.js";
+
 
 
 
