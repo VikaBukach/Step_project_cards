@@ -34,6 +34,7 @@ super({id, doctors, fullName, purpose, timing, description, status});
   <span class="cardInfo">${this.age}</span>
   
   <button id="deleteBtn">delete</button>
+  <button id="editBtn">Edit Card</button>
   
   </div>`)}
 }

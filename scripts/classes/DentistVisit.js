@@ -34,6 +34,7 @@ renderForm(){
   <span class="cardInfo">${this.lastVisit}</span>
   
   <button id="deleteBtn">delete</button>
+  <button id="editBtn">Edit Card</button>
   
   </div>`)}
 }

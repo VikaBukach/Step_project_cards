@@ -23,6 +23,9 @@ import filterCards from "./FilterCards/filterCards.js";
 import {renderCards} from "./CreateCard/createCards.js";
 import {filterUrgency} from "./FilterCards/filterCards.js";
 import {deleteCard} from "./deleteCard/deleteCard.js";
+import {editCard} from "./EditCard/editCard.js";
+import {editFormTemplate} from "./helpers/form.js";
+
 
 
 
@@ -43,7 +46,7 @@ export async function cardInfo() {
         .then(data => data.json())
     Promise.all(requests)
         .then(responses => {
-            // console.log('responses', responses)
+            console.log('responses', responses)
             arrCardsVisits = responses;
 
             if (responses.length < 1) {

@@ -53,6 +53,7 @@ class CardioVisit extends Visits {
   <span class="cardInfo">${this.age}</span>
   
   <button id="deleteBtn">delete</button>
+  <button id="editBtn">Edit Card</button>
   
   </div>`)
     }
