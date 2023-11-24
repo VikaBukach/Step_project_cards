@@ -2,13 +2,14 @@ import {getForm} from "../helpers/getForm.js";
 
 
 class Visits {
-    constructor({id, doctors, fullName, purpose, timing, description}) {
+    constructor({id, doctors, fullName, purpose, timing, description, status}) {
         this.id = id;
         this.doctors = doctors;
         this.fullName = fullName;
         this.purpose = purpose;
         this.timing = timing;
         this.description = description;
+        this.status = status;
     }
 
     render(selector) {
@@ -20,6 +21,7 @@ class Visits {
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
   <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.status}</span>
   </div>`)
     }
 
@@ -47,6 +49,11 @@ class Visits {
     <option class="modal" value="ordinary">Звичайна</option>
     <option class="modal" value="priority">Пріорітетна</option>
     <option class="modal" value="urgent">Невідкладна</option>
+  </select>
+  <select class="lableVisit" name="status">
+    <option class="modal" value="visitStatus">Статус візиту</option>
+    <option class="modal" value="Open">Візит не відбувся</option>
+    <option class="modal" value="Done">Візит пройшов</option>
   </select>
     </div>
     <div class="lableVisit">

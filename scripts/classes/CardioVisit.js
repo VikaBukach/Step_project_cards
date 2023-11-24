@@ -2,8 +2,8 @@ import {getForm} from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
-    constructor({id, doctors, fullName, purpose, timing, description, pressure, index, diseases, age}) {
-        super({id, doctors, fullName, purpose, timing, description});
+    constructor({id, doctors, fullName, purpose, timing, description, status, pressure, index, diseases, age}) {
+        super({id, doctors, fullName, purpose, timing, description, status});
         this.pressure = pressure;
         this.index = index;
         this.diseases = diseases;
@@ -46,6 +46,7 @@ class CardioVisit extends Visits {
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
   <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.pressure}</span>
   <span class="cardInfo">${this.index}</span>
   <span class="cardInfo">${this.diseases}</span>

@@ -2,8 +2,8 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class DentistVisit extends Visits {
-  constructor({id, doctors, fullName, purpose, timing, description, lastVisit}) {
-    super({id, doctors, fullName, purpose, timing, description});
+  constructor({id, doctors, fullName, purpose, timing, description, status, lastVisit}) {
+    super({id, doctors, fullName, purpose, timing, description, status});
 
     this.lastVisit = lastVisit;
   }
@@ -30,6 +30,7 @@ renderForm(){
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
   <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.lastVisit}</span>
   </div>`)}
 }

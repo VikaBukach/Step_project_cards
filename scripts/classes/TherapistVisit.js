@@ -2,8 +2,8 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class TherapistVisit extends Visits {
-  constructor({id, doctors, fullName, purpose, timing, description, age}) {
-super({id, doctors, fullName, purpose, timing, description});
+  constructor({id, doctors, fullName, purpose, timing, description, status, age}) {
+super({id, doctors, fullName, purpose, timing, description, status});
     this.age = age;
   }
   renderForm(){       
@@ -30,6 +30,7 @@ super({id, doctors, fullName, purpose, timing, description});
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
   <span class="cardInfo">${this.timing}</span>
+  <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.age}</span>
   </div>`)}
 }
