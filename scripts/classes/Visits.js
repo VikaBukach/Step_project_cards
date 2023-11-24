@@ -83,11 +83,11 @@ class Visits {
             }
         })
         var options = {
-            'keyboard': true, // teardown when <esc> key is pressed (default: true)
-            'static': false, // maintain overlay when clicked (default: false)
+            'keyboard': true,
+            'static': false,
             'onclose': function() {
                 document.body.classList.remove('mui-scroll-lock')
-            } // execute function when overlay is closed
+            }
         };
         mui.overlay('on', options, createForm)
 

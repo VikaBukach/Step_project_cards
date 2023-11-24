@@ -19,12 +19,13 @@ import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
 import {getForm} from "./helpers/getForm.js";
 
+
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
-// import filterCards from "./FilterCards/filterCards.js";
+import filterCards from "./FilterCards/filterCards.js";
+import {renderCards} from "./CreateCard/createCards.js";
 
 export var arrCardsVisits = [];
 
-export var arrCardsVisits = [];
 
 export async function cardInfo() {
     const requests = await fetch("https://ajax.test-danit.com/api/v2/cards",
@@ -39,31 +40,8 @@ export async function cardInfo() {
         .then(responses => {
             console.log('responses', responses)
             arrCardsVisits = responses; // прописати в fn на зміну картки щоб оновлювались дані з серверу
-            if (responses.length < 1) {
-                const div = document.querySelector('.main-container');
-                const h2 = document.createElement('h2');
-                h2.className = "title-main";
-                h2.innerHTML = "No items have been added";
-                div.prepend(h2);
-                return;
-            }
 
-            const h2 = document.createElement('h2');
-            h2.remove()
-
-            responses.forEach(item => {
-                if (item.doctors === 'DentistVisit') {
-                    new DentistVisit(item).render('body');
-                }
-                if (item.doctors === 'CardioVisit') {
-                    new CardioVisit(item).render('body');
-                }
-                if (item.doctors === 'TherapistVisit') {
-                    new TherapistVisit(item).render('body');
-                }
-            })
-
-            console.log('arrCardsVisits',arrCardsVisits)
+            renderCards(responses);
         })
 }
 

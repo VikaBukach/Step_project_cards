@@ -3,15 +3,17 @@ import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
 import Visits from "../classes/Visits.js";
 import { getForm } from "../helpers/getForm.js";
+import {arrCardsVisits} from "../index.js";
+import {renderCards} from "../CreateCard/createCards.js";
+
 
 export function CreateFormFilter() {
-
     const mainContainer = document.querySelector('.main-container')
     mainContainer.insertAdjacentHTML("beforeend", `
-    
+   
     <div class= "search__form-wrapper" >
         <form class ="search__form">
-            <input type="text" name="search" id="search" placeholder="Search by doctor">
+            <input type="text" name="search" id="search" placeholder="Введіть прізвище">
                 <select name="" id="status">
                     <option value="all">All</option>
                     <option value="open">Open</option>
@@ -28,19 +30,20 @@ export function CreateFormFilter() {
 `)
 }
 
-//
-// const inputSearch = document.querySelector("#search");
-// inputSearch.addEventListener("input", filterCards)
-//
-//
-//
-// function filterCards(event) {
-//     // console.log(event.target.value);
-//
-//
-//
-//
-//
-// }
-// export default filterCards;
+function filterCards(text) {
 
+    return arrCardsVisits.filter((card) => {
+        return card.fullName.includes(text)
+    })
+}
+
+export default filterCards;
+
+const inputSearch = document.querySelector("#search");
+document.addEventListener("input", (event) => {
+
+    if(event.target.id === "search") {
+        renderCards(filterCards(event.target.value))
+        console.log(filterCards(event.target.value))
+    }
+})

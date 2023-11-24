@@ -81,14 +81,11 @@ export function showBtnCreateVisit() {
         CreateVisitBtn.style.display = 'flex';
         LogoutBtn.style.display = 'flex';
     }
-
 }
 
 export function isAuthorized() {
     return localStorage.getItem('token') && localStorage.getItem('token').length > 0;
 }
-
-
 
 export function logout() {
     localStorage.removeItem('token');

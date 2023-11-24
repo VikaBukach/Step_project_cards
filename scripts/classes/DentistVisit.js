@@ -19,13 +19,8 @@ renderForm(){
   option.addEventListener("change", function (event) {
     console.log(event.target.value)
    getForm(event.target.value)
-
-   
   }
-  
-  
   )
-
 }
   render() {
     document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
@@ -37,8 +32,6 @@ renderForm(){
   <span class="cardInfo">${this.timing}</span>
   <span class="cardInfo">${this.lastVisit}</span>
   </div>`)}
-  
 }
-
 
 export default DentistVisit;
