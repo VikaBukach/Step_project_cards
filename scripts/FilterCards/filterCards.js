@@ -44,6 +44,6 @@ document.addEventListener("input", (event) => {
 
     if(event.target.id === "search") {
         renderCards(filterCards(event.target.value))
-        console.log(filterCards(event.target.value))
+        // console.log(filterCards(event.target.value))
     }
 })

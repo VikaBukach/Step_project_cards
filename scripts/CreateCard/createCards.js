@@ -6,18 +6,7 @@ import {arrCardsVisits} from "../index.js";
 export function renderCards(cardList) {
     document.querySelector('.grid-container').innerHTML = '';
 
-    if (cardList.length < 1) {
-        const div = document.querySelector('.main-container');
-        const h2 = document.createElement('h2');
-        h2.className = "title-main";
-        h2.innerHTML = "No items have been added";
-        div.prepend(h2);
 
-        return;
-    }
-
-    const h2 = document.createElement('h2');
-    h2.remove()
 
     cardList.forEach(item => {
         if (item.doctors === 'DentistVisit') {
@@ -31,5 +20,5 @@ export function renderCards(cardList) {
         }
     })
 
-    console.log('arrCardsVisits', arrCardsVisits)
+    // console.log('arrCardsVisits', arrCardsVisits)
 }
