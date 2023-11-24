@@ -21,6 +21,11 @@ import {getForm} from "./helpers/getForm.js";
 import {CreateFormFilter} from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
 import {renderCards} from "./CreateCard/createCards.js";
+import {filterUrgency} from "./FilterCards/filterCards.js"
+
+
+
+
 
 export var arrCardsVisits = [];
 
@@ -43,7 +48,7 @@ export async function cardInfo() {
                 const div = document.querySelector('.main-container');
                 const h2 = document.createElement('h2');
                 h2.className = "title-main";
-                h2.innerHTML = "No items have been added";
+                h2.innerHTML = "У Вас відсутні картки запланованих зустрічей до лікарів";
                 div.append(h2);
 
                 return;
