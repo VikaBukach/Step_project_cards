@@ -86,3 +86,4 @@ export function editFormTemplate(selector) {
     mui.overlay('on', options, editForm)
 
 }
+
