@@ -46,7 +46,6 @@ export function editFormTemplate(selector) {
     <div class="lableVisit">
     <lable id="descrForm">Опис візиту:</lable><br>
     <input type="text" name ="description" required value="${cardObject.description}"></div>
- 
     <div class="lableVisit">
     <input сlass="submitBtn" id="submitBtn" type="submit" value="Редагувати візит"></div>
   </form>
@@ -77,7 +76,16 @@ export function editFormTemplate(selector) {
         } catch (error) {
             console.error("Error during fetch:", error);
         }
+
+        
     })
+    const closeButton = document.getElementById('closeButton');
+        closeButton.addEventListener('click', function () {
+            mui.overlay('off', editForm)
+
+
+            editForm.remove()
+        });
     var options = {
         'keyboard': true,
         'static': false,
