@@ -1,5 +1,6 @@
 import {arrCardsVisits} from "../index.js";
 
+
 export function editFormTemplate(selector) {
     const id =  selector.closest(".card").id;
 
@@ -58,7 +59,7 @@ export function editFormTemplate(selector) {
     submitBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         try {
-            async function postRequest() {
+            async function putRequest() {
                 console.log("editForm")
                 const response = await axios.put(`https://ajax.test-danit.com/api/v2/cards/${id}`, new FormData(editForm), {
                     headers: {
@@ -69,7 +70,7 @@ export function editFormTemplate(selector) {
                 console.log("Server response:", response.data);
             }
 
-            postRequest()
+            putRequest()
 
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -82,8 +83,16 @@ export function editFormTemplate(selector) {
             document.body.classList.remove('mui-scroll-lock')
         }
     };
-
     mui.overlay('on', options, editForm)
 
+    document.addEventListener("click", (e) => {
+
+        if (e.target.id === 'closeButton') {
+            mui.overlay('off', editForm)
+            editForm.remove()
+        }
+    })
 }
+
+
 

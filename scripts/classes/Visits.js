@@ -102,6 +102,7 @@ class Visits {
         mui.overlay('on', options, createForm)
 
         const closeButton = document.getElementById('closeButton');
+        console.log(closeButton)
         closeButton.addEventListener('click', function () {
             mui.overlay('off', createForm)
 

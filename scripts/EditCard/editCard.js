@@ -13,7 +13,7 @@ document.addEventListener("click", (e) => {
 })
 
 export function editCard(selector) {
-    console.log(selector)
+    // console.log(selector)
     editFormTemplate(selector)
 }
 
