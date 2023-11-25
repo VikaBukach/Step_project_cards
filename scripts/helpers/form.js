@@ -1,4 +1,6 @@
-/*import {arrCardsVisits} from "../index.js";
+/*
+
+import {arrCardsVisits} from "../index.js";
 
 export function editFormTemplate(selector) {
     const id =  selector.closest(".card").id;
@@ -9,8 +11,7 @@ export function editFormTemplate(selector) {
        if(Number(card.id) === Number(id)) {
            cardObject = card;
        }
-   }
-
+   }}
 
 
     document.getElementById("editForm")?.remove()
