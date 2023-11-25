@@ -21,7 +21,8 @@ export function showMore(selector) {
     toggle.textContent = "Show More";
 }
 else {
-    text.style.display = "inline";
+    text.style.display = "flex";
+    text.style.flexDirection = "column";
     points.style.display = "none";
     toggle.textContent = "Show Less";
 }
