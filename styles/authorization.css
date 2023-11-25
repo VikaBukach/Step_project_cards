@@ -1,9 +1,3 @@
-:root{
-    --blue-color: #63aeff;
-    --orange-color: #FF8A65;
-    --white-color: white;
-}
-
 .log-in-form-wrapper{
     margin-top: 50px;
     display: flex;
@@ -13,7 +7,6 @@
 
 .title,
 .title-main{
-    font-family: 'Open Sans', sans-serif;
     color: var(--orange-color);
     font-weight: 700;
     text-align: center;
@@ -23,9 +16,10 @@
 
 .sign-in,
 .create-visit {
+    font-family: 'Poppins', sans-serif;
     background-color: var(--blue-color);
     width: 180px;
-    border-radius: 30px;
+    border-radius: 4px;
 }
 
 .log-in-form-btn{
@@ -45,3 +39,5 @@
     display: block;
     cursor: pointer;
 }
+
+/*font-family: 'Open Sans', sans-serif;*/
