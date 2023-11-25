@@ -1,4 +1,5 @@
 import {editform} from "./editform.js";
+import {arrCardsVisits} from "../index.js";
 
 
 class EditVisits {
@@ -63,7 +64,8 @@ class EditVisits {
     <input сlass="submitBtn" id="submitBtnEdit" type="submit" value="Редагувати картку"></div>
   </form>
     `)
-
+        
+    
         const editCard = document.getElementById("editCard");
         const submitBtnEdit = document.getElementById("submitBtnEdit");
 
@@ -71,6 +73,14 @@ class EditVisits {
             e.preventDefault();
             try {
                 async function putRequest() {
+              const  id =  document.querySelector('.card').getAttribute("id")    
+        let cardObject = {};
+        cardObject
+       for(let card of arrCardsVisits) {
+           if(Number(card.id) === Number(id)) {
+               cardObject = card;
+           }
+       }
                     console.log("editForm")
                     const response = await axios.put(`https://ajax.test-danit.com/api/v2/cards/${id}`, new FormData(editCard), {
                         headers: {
@@ -85,7 +95,7 @@ class EditVisits {
 
                 editCard.remove()
                 mui.overlay('off', editCard)
-                location.reload();
+              location.reload();
                 
             } catch (error) {
                 console.error("Error during fetch:", error);
