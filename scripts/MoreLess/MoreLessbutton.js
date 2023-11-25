@@ -6,15 +6,13 @@ import Visits from "../classes/Visits.js";
 
 document.addEventListener("click", (e) => {
     if(e.target.id === 'toggle') {
-        showMore(e.target)
-    }
-})
-export function showMore(selector) {
-  const card = selector.closest(".card");
-  console.log(selector)
-  const toggle = document.getElementById("toggle")
-  const text = document.getElementById("text")
-  const points = document.getElementById("dots")
+    showMore(e.target.id)}})
+    
+export function showMore() {
+
+const toggle = document.querySelectorAll(".toggle")
+  const text = document.querySelector(".text")
+  const points = document.querySelector('.dots')
   if (points.style.display === "none") {
     text.style.display = "none";
     points.style.display = "inline";
@@ -26,4 +24,11 @@ else {
     points.style.display = "none";
     toggle.textContent = "Show Less";
 }
-}
+      }
+  
+
+
+  
+
+
+
