@@ -1,10 +1,18 @@
-body {
-  background: rgb(238, 174, 202);
-  background: linear-gradient(98.66deg, #d6e9ff 2.52%, #ffddf7);
-  color: #585f73;
-
+:root{
+  --blue-color: #63aeff;
+  --orange-color: #FF8A65;
+  --white-color: white;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url('../img/TaeAugust07.jpg');
+  background-size: cover;
+  min-height: 100vh;
+}
+a:hover {
+  text-decoration: none;
+}
 
 .container {
   width: 100%;

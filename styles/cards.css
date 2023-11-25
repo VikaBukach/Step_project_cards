@@ -1,5 +1,5 @@
 .card{
-    /*width: 250px;*/
+    width: 250px;
     background: rgb(255, 255, 255);
     margin: 15px;
     padding: 10px;
@@ -22,7 +22,6 @@ margin: 4px;
     gap: 15px;
     margin-top: 15px;
 }
-
 
 .text{
     display:none;

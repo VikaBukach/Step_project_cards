@@ -17,6 +17,7 @@ const toggle = document.querySelectorAll(".toggle")
     text.style.display = "none";
     points.style.display = "inline";
     toggle.textContent = "Show More";
+    toggle.add.className = "toggleBtn";
 }
 else {
     text.style.display = "flex";

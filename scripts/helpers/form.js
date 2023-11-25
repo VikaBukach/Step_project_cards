@@ -95,13 +95,6 @@ export function editFormTemplate(selector) {
     };
     mui.overlay('on', options, editForm)
 
-    document.addEventListener("click", (e) => {
-
-        if (e.target.id === 'closeButton') {
-            mui.overlay('off', editForm)
-            editForm.remove()
-        }
-    })
 }
 
 

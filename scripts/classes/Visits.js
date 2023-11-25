@@ -61,7 +61,8 @@ class Visits {
     <input type="text" name ="description" required></div>
     ${addContent || ""} 
     <div class="lableVisit">
-    <input сlass="submitBtn" id="submitBtn" type="submit" value="Створити візит"></div>
+    <input name="submitBtn" id="submitBtn" type="submit" value="Створити візит"></div>
+    
   </form>
     `)
 
