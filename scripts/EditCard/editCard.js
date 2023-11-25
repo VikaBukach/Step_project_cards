@@ -1,4 +1,4 @@
-import DentistVisit from "../classes/DentistVisit.js";
+/*import DentistVisit from "../classes/DentistVisit.js";
 import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
 import Visits from "../classes/Visits.js";
@@ -21,4 +21,4 @@ export function editCard(selector) {
 
 
 
-// mui.overlay('on', options, createForm)
+// mui.overlay('on', options, createForm)*/
