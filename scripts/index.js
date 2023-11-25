@@ -68,9 +68,8 @@ export async function cardInfo() {
 
             const h2 = document.createElement('h2');
             h2.remove()
+            renderCards(responses);            renderEditCards(responses);
 
-            renderCards(responses);
-            renderEditCards(responses);
         })
 }
 
