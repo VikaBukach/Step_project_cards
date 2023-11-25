@@ -42,7 +42,8 @@ class CardioVisit extends Visits {
         document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
   <span class="cardInfo">${this.doctors}</span>
-  <span class="cardInfo">${this.fullName}</span>
+  <span class="cardInfo">${this.fullName}</span> <span id="dots">...</span>
+  <div id="text" class="text">
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
   <span class="cardInfo">${this.timing}</span>
@@ -51,10 +52,10 @@ class CardioVisit extends Visits {
   <span class="cardInfo">${this.index}</span>
   <span class="cardInfo">${this.diseases}</span>
   <span class="cardInfo">${this.age}</span>
-  
   <button id="deleteBtn">delete</button>
-  <button id="editBtn">Edit Card</button>
-  
+  <button id="editBtn">Edit Card</button></div>
+    <button id="toggle">Show More</button>
+
   </div>`)
     }
 }
