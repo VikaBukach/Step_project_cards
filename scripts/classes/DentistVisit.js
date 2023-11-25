@@ -26,7 +26,7 @@ renderForm(){
     document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
   <span class="cardInfo">${this.doctors}</span>
-  <span class="cardInfo">${this.fullName}</span> <span id="dots">...</span>
+  <span class="cardInfo">${this.fullName}</span> <span id="dots" class="dots">...</span>
   <div id="text" class="text">
 
   <span class="cardInfo">${this.purpose}</span>
@@ -37,7 +37,7 @@ renderForm(){
   
   <button id="deleteBtn">delete</button>
   <button id="editBtn">Edit Card</button></div>
-  <button id="toggle">Show More</button>
+  <button id="toggle" class="toggle">Show More</button>
 
   </div>`)}
 }

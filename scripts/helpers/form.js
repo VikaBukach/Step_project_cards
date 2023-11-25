@@ -70,6 +70,9 @@ export function editFormTemplate(selector) {
             }
 
             postRequest()
+            editForm.remove()
+            mui.overlay('off', editForm)
+            location.reload();
 
         } catch (error) {
             console.error("Error during fetch:", error);
