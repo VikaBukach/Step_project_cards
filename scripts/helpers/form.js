@@ -32,15 +32,15 @@ export function editFormTemplate(selector) {
     <input type="text" name="purpose" required value="${cardObject.purpose}"></div>
     <div class="lableVisit">
     <select class="selectTime lableVisit" id="selectTime" name="timing">
-    <option class="modal" value="choose">Обрати терміновість</option>
-    <option class="modal" value="ordinary">Звичайна</option>
-    <option class="modal" value="priority">Пріорітетна</option>
-    <option class="modal" value="urgent">Невідкладна</option>
+    <option class="modal" ${cardObject.timing === 'choose' ? 'selected' : ''} value="choose">Обрати терміновість</option>
+    <option class="modal" ${cardObject.timing === 'ordinary' ? 'selected' : ''} value="ordinary">Звичайна</option>
+    <option class="modal" ${cardObject.timing === 'priority' ? 'selected' : ''} value="priority">Пріорітетна</option>
+    <option class="modal" ${cardObject.timing === 'urgent' ? 'selected' : ''} value="urgent">Невідкладна</option>
   </select>
   <select class="lableVisit" name="status">
-    <option class="modal" value="visitStatus">Статус візиту</option>
-    <option class="modal" value="Open">Візит не відбувся</option>
-    <option class="modal" value="Done">Візит пройшов</option>
+    <option class="modal" ${cardObject.status === 'visitStatus' ? 'selected' : ''} value="visitStatus">Статус візиту</option>
+    <option class="modal" ${cardObject.status === 'Open' ? 'selected' : ''} value="Open">Візит не відбувся</option>
+    <option class="modal" ${cardObject.status === 'Done' ? 'selected' : ''} value="Done">Візит пройшов</option>
   </select>
     </div>
     <div class="lableVisit">
@@ -57,7 +57,7 @@ export function editFormTemplate(selector) {
     submitBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         try {
-            async function postRequest() {
+            async function putRequest() {
                 console.log("editForm")
                 const response = await axios.put(`https://ajax.test-danit.com/api/v2/cards/${id}`, new FormData(editForm), {
                     headers: {
@@ -68,7 +68,7 @@ export function editFormTemplate(selector) {
                 console.log("Server response:", response.data);
             }
 
-            postRequest()
+            putRequest()
             editForm.remove()
             mui.overlay('off', editForm)
             location.reload();
@@ -77,7 +77,7 @@ export function editFormTemplate(selector) {
             console.error("Error during fetch:", error);
         }
 
-        
+
     })
     const closeButton = document.getElementById('closeButton');
         closeButton.addEventListener('click', function () {
@@ -93,8 +93,16 @@ export function editFormTemplate(selector) {
             document.body.classList.remove('mui-scroll-lock')
         }
     };
-
     mui.overlay('on', options, editForm)
 
+    document.addEventListener("click", (e) => {
+
+        if (e.target.id === 'closeButton') {
+            mui.overlay('off', editForm)
+            editForm.remove()
+        }
+    })
 }
+
+
 
