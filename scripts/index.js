@@ -17,8 +17,8 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
-import { getForm } from "./helpers/getForm.js";
-import { CreateFormFilter } from "./FilterCards/filterCards.js"
+import {getForm} from "./helpers/getForm.js";
+import {CreateFormFilter, filterStatus} from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
 import { renderCards } from "./CreateCard/createCards.js";
 import { filterUrgency } from "./FilterCards/filterCards.js";

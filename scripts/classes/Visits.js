@@ -51,8 +51,8 @@ class Visits {
   </select>
   <select class="lableVisit" name="status">
     <option class="modal" value="visitStatus">Статус візиту</option>
-    <option class="modal" value="Open">Візит не відбувся</option>
-    <option class="modal" value="Done">Візит пройшов</option>
+    <option class="modal" value="open">Візит не відбувся</option>
+    <option class="modal" value="done">Візит пройшов</option>
   </select>
     </div>
     <div class="lableVisit">

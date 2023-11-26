@@ -14,10 +14,10 @@ export function CreateFormFilter() {
     <div class= "search__form-wrapper" >
         <form class ="search__form">
             <input type="text" name="search" id="search" placeholder="Введіть прізвище">
-                <select name="" id="status">
+                <select name="status-search" id="status">
                     <option value="all">Статус візита</option>
-                    <option value="open">Візит пройшов</option>
-                    <option value="done">Візит ще не відбувся</option>
+                    <option value="done">Візит пройшов</option>
+                    <option value="open">Візит ще не відбувся</option>
                 </select>
                 <select name="urgency" id="urgency">
                     <option value="choose">Терміновість</option>   
@@ -34,12 +34,9 @@ function filterCards(text) {
     return arrCardsVisits.filter((card) => {
         return card.fullName.includes(text)
     })
-
 }
-
 export default filterCards;
 
-// const inputSearch = document.querySelector("#search");
 document.addEventListener("input", (event) => {
 
     if (event.target.id === "search") {
@@ -47,9 +44,7 @@ document.addEventListener("input", (event) => {
     }
 })
 
-
 export function filterUrgency(index) {
-
     return arrCardsVisits.filter((card) => {
         return card.timing === index
     })
@@ -58,5 +53,21 @@ document.addEventListener("change", (event) => {
 
     if (event.target.id === "urgency") {
         renderCards(filterUrgency(event.target.value))
+    }
+})
+
+export function filterStatus(index) {
+
+    return arrCardsVisits.filter((card) => {
+
+        return card.status === index
+    })
+}
+
+document.addEventListener("change", (event) => {
+
+    if(event.target.id === "status") {
+        console.log(event.target.value)
+        renderCards(filterStatus(event.target.value))
     }
 })
