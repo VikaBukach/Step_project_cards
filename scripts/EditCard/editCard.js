@@ -6,7 +6,7 @@ import {getForm} from "../helpers/getForm.js";
 import {editFormTemplate} from "../helpers/form.js";
 
 document.addEventListener("click", (e) => {
-    if(e.target.id === 'editBtn') {
+    if(e.target.classList.contains('editBtn')) {
         editCard(e.target)
     }
 })

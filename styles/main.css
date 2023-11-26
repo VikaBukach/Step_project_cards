@@ -19,3 +19,7 @@ a:hover {
   max-width: 1140px;
   margin: 0 auto;
 }
+
+.editBtn {
+  cursor: pointer;
+}
