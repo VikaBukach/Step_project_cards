@@ -5,7 +5,7 @@ import TherapistVisit from "../classes/TherapistVisit.js";
 import Visits from "../classes/Visits.js";
 
 document.addEventListener("click", (e) => {
-    if(e.target.id === 'deleteBtn') {
+    if(e.target.classList.contains('deleteBtn'))  {
         deleteCard(e.target)
     }
 })

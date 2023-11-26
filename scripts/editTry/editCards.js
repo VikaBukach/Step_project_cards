@@ -25,7 +25,11 @@ class EditVisits {
   </div>`)
     }
 
-    renderCard(addContent) {
+    renderCard(target) {
+        let id = target.closest('.card').id;
+
+        console.log(id)
+
         document.getElementById("editCard")?.remove()
         document.querySelector("body").insertAdjacentHTML('afterend', `
     <form id="editCard" class="modal formDoc">    
@@ -59,7 +63,7 @@ class EditVisits {
     <div class="lableVisit">
     <lable id="descrForm">Опис візиту:</lable><br>
     <input type="text" name ="description" required></div>
-    ${addContent || ""} 
+    
     <div class="lableVisit">
     <input сlass="submitBtn" id="submitBtnEdit" type="submit" value="Редагувати картку"></div>
   </form>
