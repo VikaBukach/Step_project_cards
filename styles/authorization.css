@@ -1,4 +1,4 @@
-.log-in-form-wrapper{
+.log-in-form-wrapper {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
 }
 
 .title,
-.title-main{
+.title-main {
     color: var(--orange-color);
     font-weight: 700;
     text-align: center;
@@ -22,7 +22,7 @@
     border-radius: 4px;
 }
 
-.log-in-form-btn{
+.log-in-form-btn {
     margin-top: 80px;
     width: 400px;
 }

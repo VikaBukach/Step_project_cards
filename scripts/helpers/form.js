@@ -1,4 +1,4 @@
-import {arrCardsVisits} from "../index.js";
+import { arrCardsVisits } from "../index.js";
 
 export function editFormTemplate(selector) {
     const id = selector.closest(".card").id;

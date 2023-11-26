@@ -1,4 +1,4 @@
-import {arrCardsVisits} from "../index.js";
+import { arrCardsVisits } from "../index.js";
 import DentistVisit from "../classes/DentistVisit.js";
 import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
@@ -26,10 +26,10 @@ export function showMore(target) {
         toggle.textContent = "Show Less";
     }
 }
-  
 
 
-  
+
+
 
 
 

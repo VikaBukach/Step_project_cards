@@ -1,8 +1,8 @@
-import {getForm} from "../helpers/getForm.js";
+import { getForm } from "../helpers/getForm.js";
 
 
 class Visits {
-    constructor({id, doctors, fullName, purpose, timing, description, status}) {
+    constructor({ id, doctors, fullName, purpose, timing, description, status }) {
         this.id = id;
         this.doctors = doctors;
         this.fullName = fullName;
@@ -92,7 +92,7 @@ class Visits {
         var options = {
             'keyboard': true,
             'static': false,
-            'onclose': function() {
+            'onclose': function () {
                 document.body.classList.remove('mui-scroll-lock')
             }
         };

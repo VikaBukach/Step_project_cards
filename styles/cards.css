@@ -1,4 +1,4 @@
-.card{
+.card {
     width: 250px;
     height: fit-content;
     background: rgb(255, 255, 255);
@@ -12,53 +12,52 @@
     flex-direction: column;
 }
 
-.cardInfo{
-font-size: 16px;
-margin: 4px;
+.cardInfo {
+    font-size: 16px;
+    margin: 4px;
 }
 
-.grid-container{
+.grid-container {
     margin: 15px 60px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 380px;
     gap: 15px;
-    /*margin-top: 15px;*/
 }
 
-.text{
-    display:none;
-    }
+.text {
+    display: none;
+}
 
 
 
 
-    .toggle {
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
-        border-radius: 4px;
-        background-color: var(--blue-color);
-        color: var(--white-color);
-        border-color: var(--blue-color);
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;  
-        align-self: center;
-        
-    }
+.toggle {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    border-color: var(--blue-color);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 
-    .dots{
-        margin: 4px;
-        color: var(--blue-color);
-        font-size: 25px;
-        border-color: var(--blue-color);
-    }
+}
+
+.dots {
+    margin: 4px;
+    color: var(--blue-color);
+    font-size: 25px;
+    border-color: var(--blue-color);
+}
 
 
 
-    .mainInfo{
-        font-size: 20px;
-       font-weight: bold;
+.mainInfo {
+    font-size: 20px;
+    font-weight: bold;
 
-    }
+}

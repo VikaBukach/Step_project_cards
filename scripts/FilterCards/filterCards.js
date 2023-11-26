@@ -3,8 +3,8 @@ import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
 import Visits from "../classes/Visits.js";
 import { getForm } from "../helpers/getForm.js";
-import {arrCardsVisits} from "../index.js";
-import {renderCards} from "../CreateCard/createCards.js";
+import { arrCardsVisits } from "../index.js";
+import { renderCards } from "../CreateCard/createCards.js";
 
 
 export function CreateFormFilter() {
@@ -42,7 +42,7 @@ export default filterCards;
 // const inputSearch = document.querySelector("#search");
 document.addEventListener("input", (event) => {
 
-    if(event.target.id === "search") {
+    if (event.target.id === "search") {
         renderCards(filterCards(event.target.value))
     }
 })
@@ -56,7 +56,7 @@ export function filterUrgency(index) {
 }
 document.addEventListener("change", (event) => {
 
-    if(event.target.id === "urgency") {
+    if (event.target.id === "urgency") {
         renderCards(filterUrgency(event.target.value))
     }
 })

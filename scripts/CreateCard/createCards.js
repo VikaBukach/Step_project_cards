@@ -1,7 +1,7 @@
 import DentistVisit from "../classes/DentistVisit.js";
 import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
-import {arrCardsVisits} from "../index.js";
+import { arrCardsVisits } from "../index.js";
 
 export function renderCards(cardList) {
     document.querySelector('.grid-container').innerHTML = '';

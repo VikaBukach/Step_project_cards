@@ -2,25 +2,25 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class DentistVisit extends Visits {
-  constructor({id, doctors, fullName, purpose, timing, description, status, lastVisit}) {
-    super({id, doctors, fullName, purpose, timing, description, status});
+  constructor({ id, doctors, fullName, purpose, timing, description, status, lastVisit }) {
+    super({ id, doctors, fullName, purpose, timing, description, status });
 
     this.lastVisit = lastVisit;
   }
-renderForm(){      
+  renderForm() {
     const addValue = `    
   <div class="lableVisit" id="formForDoctor">
   <lable id="lastVisit">Останній візит:</lable>
   <input type="date" name="lastVisit" required></div>
   `
-  super.renderForm(addValue)
-  const option = document.getElementById('selectDoc');
-  option.value='DentistVisit';
-  option.addEventListener("change", function (event) {
-   getForm(event.target.value)
+    super.renderForm(addValue)
+    const option = document.getElementById('selectDoc');
+    option.value = 'DentistVisit';
+    option.addEventListener("change", function (event) {
+      getForm(event.target.value)
+    }
+    )
   }
-  )
-}
   render() {
     document.querySelector(".grid-container").insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
@@ -40,7 +40,8 @@ renderForm(){
   </div>
   <button class="toggle">Show More</button>
 
-  </div>`)}
+  </div>`)
+  }
 }
 
 export default DentistVisit;

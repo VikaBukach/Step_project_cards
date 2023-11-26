@@ -1,4 +1,4 @@
-:root{
+:root {
   --blue-color: #63aeff;
   --orange-color: #FF8A65;
   --white-color: white;
@@ -10,6 +10,7 @@ body {
   background-size: cover;
   min-height: 100vh;
 }
+
 a:hover {
   text-decoration: none;
 }

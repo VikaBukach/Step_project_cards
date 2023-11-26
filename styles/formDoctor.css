@@ -17,7 +17,7 @@
     margin-bottom: 15px;
 }
 
-input[name="submitBtn"]{
+input[name="submitBtn"] {
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     border-radius: 4px;

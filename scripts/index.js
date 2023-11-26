@@ -17,15 +17,15 @@ import DentistVisit from "./classes/DentistVisit.js";
 import CardioVisit from "./classes/CardioVisit.js";
 import TherapistVisit from "./classes/TherapistVisit.js";
 import Visits from "./classes/Visits.js";
-import {getForm} from "./helpers/getForm.js";
-import {CreateFormFilter} from "./FilterCards/filterCards.js"
+import { getForm } from "./helpers/getForm.js";
+import { CreateFormFilter } from "./FilterCards/filterCards.js"
 import filterCards from "./FilterCards/filterCards.js";
-import {renderCards} from "./CreateCard/createCards.js";
-import {filterUrgency} from "./FilterCards/filterCards.js";
-import {deleteCard} from "./deleteCard/deleteCard.js";
-import {editCard} from "./EditCard/editCard.js";
-import {editFormTemplate} from "./helpers/form.js";
-import {showMore} from "./MoreLess/MoreLessbutton.js";
+import { renderCards } from "./CreateCard/createCards.js";
+import { filterUrgency } from "./FilterCards/filterCards.js";
+import { deleteCard } from "./deleteCard/deleteCard.js";
+import { editCard } from "./EditCard/editCard.js";
+import { editFormTemplate } from "./helpers/form.js";
+import { showMore } from "./MoreLess/MoreLessbutton.js";
 
 export var arrCardsVisits = [];
 
@@ -65,8 +65,8 @@ btnVisit.addEventListener("click", function (event) {
     new Visits({}).renderForm()
     const option = document.getElementById('selectDoc');
     option.addEventListener("change", function (event) {
-            getForm(event.target.value)
-        }
+        getForm(event.target.value)
+    }
     )
 })
 
@@ -75,5 +75,4 @@ btnVisit.addEventListener("click", function (event) {
 
 
 
- 
-  
+

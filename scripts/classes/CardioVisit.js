@@ -1,9 +1,9 @@
-import {getForm} from "../helpers/getForm.js";
+import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class CardioVisit extends Visits {
-    constructor({id, doctors, fullName, purpose, timing, description, status, pressure, index, diseases, age}) {
-        super({id, doctors, fullName, purpose, timing, description, status});
+    constructor({ id, doctors, fullName, purpose, timing, description, status, pressure, index, diseases, age }) {
+        super({ id, doctors, fullName, purpose, timing, description, status });
         this.pressure = pressure;
         this.index = index;
         this.diseases = diseases;
@@ -29,10 +29,10 @@ class CardioVisit extends Visits {
         const option = document.getElementById('selectDoc');
         option.value = 'CardioVisit';
         option.addEventListener("change", function (event) {
-                getForm(event.target.value)
+            getForm(event.target.value)
 
 
-            }
+        }
         )
     }
 

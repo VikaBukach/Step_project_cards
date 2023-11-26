@@ -2,11 +2,11 @@ import { getForm } from "../helpers/getForm.js";
 import Visits from "./Visits.js";
 
 class TherapistVisit extends Visits {
-  constructor({id, doctors, fullName, purpose, timing, description, status, age}) {
-super({id, doctors, fullName, purpose, timing, description, status});
+  constructor({ id, doctors, fullName, purpose, timing, description, status, age }) {
+    super({ id, doctors, fullName, purpose, timing, description, status });
     this.age = age;
   }
-  renderForm(){       
+  renderForm() {
     const addValue = `
     <div class="lableVisit" id="formForDoctor">
     <lable id="day">Вік:</lable>
@@ -14,9 +14,9 @@ super({id, doctors, fullName, purpose, timing, description, status});
     `
     super.renderForm(addValue)
     const option = document.getElementById('selectDoc');
-    option.value='TherapistVisit';
-  option.addEventListener("change", function (event) {
-   getForm(event.target.value)
+    option.value = 'TherapistVisit';
+    option.addEventListener("change", function (event) {
+      getForm(event.target.value)
     }
     )
   }
@@ -39,7 +39,8 @@ super({id, doctors, fullName, purpose, timing, description, status});
   </div>
   <button class="toggle">Show More</button>
 
-  </div>`)}
+  </div>`)
+  }
 }
 
 export default TherapistVisit;

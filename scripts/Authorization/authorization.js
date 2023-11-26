@@ -1,5 +1,5 @@
-import {cardInfo} from "../index.js";
-import {CreateFormFilter} from "../FilterCards/filterCards.js";
+import { cardInfo } from "../index.js";
+import { CreateFormFilter } from "../FilterCards/filterCards.js";
 
 const signInBtn = document.getElementById('signIn-btn');
 signInBtn.addEventListener('click', openModal)
@@ -7,7 +7,7 @@ showBtnCreateVisit()
 
 export function openModal() {
     createModal("Реєстрація", getAuthForm())
-    document.getElementById('auth-form').addEventListener('submit', authFormHandler, {once: true})
+    document.getElementById('auth-form').addEventListener('submit', authFormHandler, { once: true })
 }
 
 export function createModal(title, content) {
@@ -52,11 +52,11 @@ export function authWithEmailAndPassword(email, password) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: email, password: password})
+        body: JSON.stringify({ email: email, password: password })
     })
         .then(response => response.text())
         .then(token => {
-            if(token === "Incorrect username or password") {
+            if (token === "Incorrect username or password") {
                 alert('Incorrect username or password')
                 location.reload();
 
