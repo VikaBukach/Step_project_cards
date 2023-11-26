@@ -28,6 +28,9 @@ import { editFormTemplate } from "./helpers/form.js";
 import { showMore } from "./MoreLess/MoreLessbutton.js";
 
 export var arrCardsVisits = [];
+export function cardsVisitsRemoveById( id ) {
+    arrCardsVisits = arrCardsVisits.filter((cardObj) => Number(cardObj.id) !== Number(id));
+}
 
 
 export async function cardInfo() {
