@@ -44,7 +44,6 @@ document.addEventListener("input", (event) => {
     }
 })
 
-//----------------------------
 export function filterUrgency(index) {
     return arrCardsVisits.filter((card) => {
         return card.timing === index
@@ -56,9 +55,8 @@ document.addEventListener("change", (event) => {
         renderCards(filterUrgency(event.target.value))
     }
 })
-//----------------------------
+
 export function filterStatus(index) {
-    console.log(arrCardsVisits)
 
     return arrCardsVisits.filter((card) => {
 
