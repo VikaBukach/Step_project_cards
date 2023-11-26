@@ -13,7 +13,6 @@ class Visits {
     }
 
     render(selector) {
-        console.log(fullName)
         document.querySelector(selector).insertAdjacentHTML('beforeend', `
   <div class="card" id=${this.id}>
   <span class="cardInfo">${this.doctors}</span>
@@ -73,14 +72,12 @@ class Visits {
             e.preventDefault();
             try {
                 async function postRequest() {
-                    console.log("createForm")
                     const response = await axios.post('https://ajax.test-danit.com/api/v2/cards', new FormData(createForm), {
                         headers: {
                             "Content-Type": "application/json",
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                         },
                     });
-                    console.log("Server response:", response.data);
                 }
 
                 postRequest()
@@ -103,7 +100,6 @@ class Visits {
         mui.overlay('on', options, createForm)
 
         const closeButton = document.getElementById('closeButton');
-        console.log(closeButton)
         closeButton.addEventListener('click', function () {
             mui.overlay('off', createForm)
 

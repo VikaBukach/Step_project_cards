@@ -6,8 +6,6 @@ import {arrCardsVisits} from "../index.js";
 export function renderCards(cardList) {
     document.querySelector('.grid-container').innerHTML = '';
 
-    console.log('000000000000', cardList)
-
     cardList.forEach(item => {
         if (item.doctors === 'DentistVisit') {
             new DentistVisit(item).render('body');
@@ -19,6 +17,4 @@ export function renderCards(cardList) {
             new TherapistVisit(item).render('body');
         }
     })
-
-    // console.log('arrCardsVisits', arrCardsVisits)
 }

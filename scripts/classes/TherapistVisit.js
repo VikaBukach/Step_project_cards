@@ -14,10 +14,8 @@ super({id, doctors, fullName, purpose, timing, description, status});
     `
     super.renderForm(addValue)
     const option = document.getElementById('selectDoc');
-    console.log(option)
     option.value='TherapistVisit';
   option.addEventListener("change", function (event) {
-    console.log(event.target.value)
    getForm(event.target.value)
     }
     )

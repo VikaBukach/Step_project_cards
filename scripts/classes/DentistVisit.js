@@ -17,7 +17,6 @@ renderForm(){
   const option = document.getElementById('selectDoc');
   option.value='DentistVisit';
   option.addEventListener("change", function (event) {
-    console.log(event.target.value)
    getForm(event.target.value)
   }
   )

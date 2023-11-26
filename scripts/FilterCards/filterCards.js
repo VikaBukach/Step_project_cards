@@ -51,14 +51,12 @@ document.addEventListener("input", (event) => {
 export function filterUrgency(index) {
 
     return arrCardsVisits.filter((card) => {
-        // console.log(card)
         return card.timing === index
     })
 }
 document.addEventListener("change", (event) => {
 
     if(event.target.id === "urgency") {
-        // console.log(event.target.value)
         renderCards(filterUrgency(event.target.value))
     }
 })

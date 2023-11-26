@@ -1,18 +1,15 @@
-/*
-
 import {arrCardsVisits} from "../index.js";
 
 export function editFormTemplate(selector) {
-    const id =  selector.closest(".card").id;
+    const id = selector.closest(".card").id;
 
     let cardObject = {};
     cardObject
-   for(let card of arrCardsVisits) {
-       if(Number(card.id) === Number(id)) {
-           cardObject = card;
-       }
-   }}
-
+    for (let card of arrCardsVisits) {
+        if (Number(card.id) === Number(id)) {
+            cardObject = card;
+        }
+    }
 
     document.getElementById("editForm")?.remove()
     document.querySelector("body").insertAdjacentHTML('afterend', `
@@ -59,14 +56,12 @@ export function editFormTemplate(selector) {
         e.preventDefault();
         try {
             async function putRequest() {
-                console.log("editForm")
                 const response = await axios.put(`https://ajax.test-danit.com/api/v2/cards/${id}`, new FormData(editForm), {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
                 });
-                console.log("Server response:", response.data);
             }
 
             putRequest()
@@ -81,20 +76,19 @@ export function editFormTemplate(selector) {
 
     })
     const closeButton = document.getElementById('closeButton');
-        closeButton.addEventListener('click', function () {
-            mui.overlay('off', editForm)
+    closeButton.addEventListener('click', function () {
+        mui.overlay('off', editForm)
 
 
-            editForm.remove()
-        });
+        editForm.remove()
+    });
     var options = {
         'keyboard': true,
         'static': false,
-        'onclose': function() {
+        'onclose': function () {
             document.body.classList.remove('mui-scroll-lock')
         }
     };
     mui.overlay('on', options, editForm)
 
 }
-/*/

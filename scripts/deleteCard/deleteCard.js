@@ -11,7 +11,6 @@ document.addEventListener("click", (e) => {
 })
 
 export function deleteCard(selector) {
-    console.log(selector)
     const card = selector.closest(".card");
 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${card.id}`,

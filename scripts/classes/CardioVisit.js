@@ -27,10 +27,8 @@ class CardioVisit extends Visits {
     `
         super.renderForm(addValue)
         const option = document.getElementById('selectDoc');
-        console.log(option)
         option.value = 'CardioVisit';
         option.addEventListener("change", function (event) {
-                console.log(event.target.value)
                 getForm(event.target.value)
 
 
