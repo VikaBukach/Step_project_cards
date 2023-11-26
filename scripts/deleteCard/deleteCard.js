@@ -1,4 +1,4 @@
-import { arrCardsVisits } from "../index.js";
+import {arrCardsVisits, cardsVisitsRemoveById} from "../index.js";
 import DentistVisit from "../classes/DentistVisit.js";
 import CardioVisit from "../classes/CardioVisit.js";
 import TherapistVisit from "../classes/TherapistVisit.js";
@@ -19,8 +19,19 @@ export function deleteCard(selector) {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             }, method: 'DELETE'
-        }).then(response => console.log(response))
-    arrCardsVisits.forEach(item => {
+        }).then(response => {
+
+
+        cardsVisitsRemoveById(card.id)
+
         card.remove()
+        console.log(arrCardsVisits)
+        if (arrCardsVisits.length < 1) {
+            const div = document.querySelector('.main-container');
+            const h2 = document.createElement('h2');
+            h2.className = "title-main";
+            h2.innerHTML = "У Вас відсутні картки запланованих зустрічей до лікарів";
+            div.append(h2);
+        }
     })
 }

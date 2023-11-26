@@ -103,12 +103,9 @@ class Visits {
         closeButton.addEventListener('click', function () {
             mui.overlay('off', createForm)
 
-
             createForm.remove()
         });
     }
 }
 
 export default Visits;
-
-

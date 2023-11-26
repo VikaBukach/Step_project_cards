@@ -6,7 +6,7 @@ signInBtn.addEventListener('click', openModal)
 showBtnCreateVisit()
 
 export function openModal() {
-    createModal("Реєстрація", getAuthForm())
+    createModal("Аутентифікація", getAuthForm())
     document.getElementById('auth-form').addEventListener('submit', authFormHandler, { once: true })
 }
 
@@ -95,12 +95,3 @@ export function logout() {
 const LogoutBtn = document.getElementById('logout-btn');
 LogoutBtn.addEventListener('click', logout)
 
-
-
-// rrrrr@ttt.ua      є картки
-// 11111
-// 91ed8dc3-0171-4061-a126-f66fcd47fca1
-
-// Dfgtr@gmail.com
-// 1234we
-// 9c254ab4-ac5e-41fc-b944-c1cd249b849b
