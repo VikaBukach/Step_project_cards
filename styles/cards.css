@@ -1,5 +1,6 @@
 .card{
     width: 250px;
+    min-height: 320px;
     background: rgb(255, 255, 255);
     margin: 15px;
     padding: 10px;
@@ -19,7 +20,7 @@ margin: 4px;
     margin: 15px 60px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: minmax(100px, 300px);
+    grid-auto-rows: auto;
     gap: 15px;
     /*margin-top: 15px;*/
 }
