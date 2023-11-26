@@ -5,27 +5,27 @@ import TherapistVisit from "../classes/TherapistVisit.js";
 import Visits from "../classes/Visits.js";
 
 document.addEventListener("click", (e) => {
-    if(e.target.id === 'toggle') {
-    showMore(e.target.id)}})
-    
-export function showMore() {
+    if (e.target.classList.contains('toggle')) {
+        showMore(e.target)
+    }
+})
 
-const toggle = document.querySelectorAll(".toggle")
-  const text = document.querySelector(".text")
-  const points = document.querySelector('.dots')
-  if (points.style.display === "none") {
-    text.style.display = "none";
-    points.style.display = "inline";
-    toggle.textContent = "Show More";
-   // toggle.add.className = "toggleBtn";
+export function showMore(target) {
+
+    const toggle = target;
+    const text = target.closest(".card").querySelector(".text")
+    const points = target.closest(".card").querySelector('.dots')
+    if (points.style.display === "none") {
+        text.style.display = "none";
+        points.style.display = "inline";
+        toggle.textContent = "Show More";
+    } else {
+        text.style.display = "flex";
+        text.style.flexDirection = "column";
+        points.style.display = "none";
+        toggle.textContent = "Show Less";
+    }
 }
-else {
-    text.style.display = "flex";
-    text.style.flexDirection = "column";
-    points.style.display = "none";
-    toggle.textContent = "Show Less";
-}
-      }
   
 
 

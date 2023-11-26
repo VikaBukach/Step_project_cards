@@ -27,7 +27,7 @@ super({id, doctors, fullName, purpose, timing, description, status});
   <div class="card" id=${this.id}>
   <span class="cardInfo">${this.doctors}</span>
   <span class="cardInfo">${this.fullName}</span> <span id="dots" class="dots">...</span>
-  <div id="text" class="text">
+  <div class="text">
 
   <span class="cardInfo">${this.purpose}</span>
   <span class="cardInfo">${this.description}</span>
@@ -35,9 +35,9 @@ super({id, doctors, fullName, purpose, timing, description, status});
   <span class="cardInfo">${this.status}</span>
   <span class="cardInfo">${this.age}</span>
   
-  <button id="deleteBtn">delete</button>
-  <button id="editBtn">Edit Card</button></div>
-  <button id="toggle" class="toggle">Show More</button>
+  <button class="deleteBtn">delete</button>
+  <button class="editBtn">Edit Card</button></div>
+  <button class="toggle">Show More</button>
 
   </div>`)}
 }
