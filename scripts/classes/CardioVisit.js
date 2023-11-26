@@ -13,16 +13,16 @@ class CardioVisit extends Visits {
     renderForm() {
         const addValue = `
     <div class="lableVisit" id="formForDoctor">
-    <lable id="pressure">Звичайний тиск:</lable>
+    <lable id="pressure" required>Звичайний тиск:</lable>
     <input type="number" name="pressure" required></div>
     <div class="lableVisit">
-    <lable id="index">Індекс маси тіла:</lable>
+    <lable id="index" required>Індекс маси тіла:</lable>
     <input type="number" name="index" required></div>
     <div class="lableVisit">
-    <lable id="diseases">Захворювання:</lable>
+    <lable id="diseases" required>Захворювання:</lable>
     <input type="text" name="diseases" required></div>
     <div class="lableVisit">
-    <lable id="age">Вік:</lable>
+    <lable id="age" required>Вік:</lable>
     <input type="number" name="age" required></div>
     `
         super.renderForm(addValue)

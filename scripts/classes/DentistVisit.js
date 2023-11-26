@@ -10,7 +10,7 @@ class DentistVisit extends Visits {
   renderForm() {
     const addValue = `    
   <div class="lableVisit" id="formForDoctor">
-  <lable id="lastVisit">Останній візит:</lable>
+  <lable id="lastVisit" required>Останній візит:</lable>
   <input type="date" name="lastVisit" required></div>
   `
     super.renderForm(addValue)

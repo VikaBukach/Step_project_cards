@@ -9,7 +9,7 @@ class TherapistVisit extends Visits {
   renderForm() {
     const addValue = `
     <div class="lableVisit" id="formForDoctor">
-    <lable id="day">Вік:</lable>
+    <lable id="day" required>Вік:</lable>
     <input type="number" name="age" required></div>
     `
     super.renderForm(addValue)
