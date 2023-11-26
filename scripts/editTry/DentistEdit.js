@@ -45,7 +45,7 @@ class EditDentistVisit extends EditVisits {
 
         document.querySelectorAll('.editBtn').forEach((btnEdit) => {
             btnEdit.addEventListener("click", function (event) {
-                new EditVisits({}).renderCard()
+                new EditVisits({}).renderCard(event.target)
                 const option = document.getElementById('selectDoc');
                 console.log(option)
                 option.addEventListener("change", function (event) {

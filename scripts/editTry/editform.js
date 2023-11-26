@@ -3,7 +3,7 @@ import EditDentistVisit from "./DentistEdit.js";
 import EditTherapistVisit from "./TherapistEdit.js";
 
 export function editform (value){
-
+    console.log('dddd')
     if (value === 'TherapistVisit') { 
     
         new EditTherapistVisit({}).renderCard();
