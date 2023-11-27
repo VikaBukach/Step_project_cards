@@ -1,0 +1,28 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1140px;
+    margin: 0 auto;
+    height: 100px;
+    background-color: white;
+    border-top: 3px solid var(--blue-color);
+}
+
+.socials {
+    width: auto;
+    display: flex;
+    align-items: center;
+
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
