@@ -32,7 +32,7 @@ export function CreateFormFilter() {
 
 function filterCards(text) {
     return arrCardsVisits.filter((card) => {
-        return card.fullName.includes(text)
+        return card.fullName.toLowerCase().includes(text.toLowerCase())
     })
 }
 export default filterCards;
@@ -45,6 +45,10 @@ document.addEventListener("input", (event) => {
 })
 
 export function filterUrgency(index) {
+    if(index.toLowerCase() === 'choose') {
+        return arrCardsVisits
+    }
+
     return arrCardsVisits.filter((card) => {
         return card.timing === index
     })
@@ -57,6 +61,9 @@ document.addEventListener("change", (event) => {
 })
 
 export function filterStatus(index) {
+    if(index.toLowerCase() === 'all') {
+        return arrCardsVisits
+    }
 
     return arrCardsVisits.filter((card) => {
 
@@ -71,3 +78,4 @@ document.addEventListener("change", (event) => {
         renderCards(filterStatus(event.target.value))
     }
 })
+
