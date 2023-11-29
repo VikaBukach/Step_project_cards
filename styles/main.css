@@ -4,19 +4,28 @@
   --white-color: white;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-image: url('../img/TaeAugust07.jpg');
   background-size: cover;
-  min-height: 100vh;
 }
 
+main {
+  min-height: calc(100vh - 30px - 18px);
+}
 a:hover {
   text-decoration: none;
 }
 
 .container {
-  width: 100%;
+  width: auto;
   max-width: 1140px;
   margin: 0 auto;
 }
@@ -24,3 +33,4 @@ a:hover {
 .editBtn {
   cursor: pointer;
 }
+
